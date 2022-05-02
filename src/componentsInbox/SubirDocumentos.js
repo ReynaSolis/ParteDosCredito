@@ -7,6 +7,7 @@ import WebcamComponent from "../../componentesDocs/WebcamComponent";
 import MediaQuery from 'react-responsive'
 
 import ContextoUsuario from "../contexto/context";
+import Footer from "../Footer/Footer"
 
 //importar componentes que podriamos usar de react
 import {
@@ -102,6 +103,7 @@ const HomeScreen = ({ navigation }) => {
 
        <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
               <MediaQuery minDeviceWidth={530}>
+
               {mostrarCamara && (
                <View style={styles.container}>
                  <Image source={logo} style={styles.logo_530} />
@@ -110,10 +112,10 @@ const HomeScreen = ({ navigation }) => {
             )}
 
             {!mostrarCamara && (
-
               <View style={styles.container}>
+                  
                 <Image source={logo} style={styles.logo_530} />
-                <Text style={styles.header_530}>Sube tus Documentos{"\n"}{"\n"}</Text>
+                <Text style={styles.header_530}>Carga tus Documentos{"\n"}{"\n"}</Text>
                 <Text style={styles.header2_530}>Procura que tus documentos sean legibles{"\n"}{"\n"}</Text>
                 <form onSubmit={Confirmar} method="post" encType="multipart/form-data">
                   
@@ -230,14 +232,19 @@ const HomeScreen = ({ navigation }) => {
             </View>
 
                 </form>
+               
               </View>
-
+              
              )}
+
+          
+
             </MediaQuery>
         </MediaQuery>    
 
         <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
           <MediaQuery maxDeviceWidth={529}>  
+         
             {mostrarCamara && (
                <View style={styles.container}>
                  <Image source={logo} style={styles.logo} />
@@ -369,6 +376,7 @@ const HomeScreen = ({ navigation }) => {
               </View>
 
              )}
+
           </MediaQuery>
         </MediaQuery>         
       

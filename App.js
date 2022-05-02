@@ -56,7 +56,8 @@ export default function App() {
       capturaIdentidad,setCapturaIdentidad,
                             }}>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Menu">
+      <Stack.Navigator screenOptions={{headerShown:false}}
+      initialRouteName="Login">
         <Stack.Screen name= "Login" component={Login} options={{title:''}} />
         <Stack.Screen name= "Upin" component={Upin} options={{title:''}} />
         <Stack.Screen name= "ConsultarUpin" component={ConsultarUpin} options={{title:''}} />
@@ -71,7 +72,6 @@ export default function App() {
         <Stack.Screen name= "Menu" component={Menu}  options={{title:''}} />
         <Stack.Screen name= "DocumentosRequeridos" component={DocumentosRequeridos} options={{title:''}} />
         <Stack.Screen name="confirmarIdentidad" component={ConfirmarIdentidad} options={{title:''}} />
-
       </Stack.Navigator>
       </NavigationContainer>
       </ContextoUsuario.Provider>

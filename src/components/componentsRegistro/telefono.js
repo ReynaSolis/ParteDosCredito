@@ -4,7 +4,8 @@ import logo from "../../../assets/img/logo.png";
 import mexico from "../../../assets/img/mexico.png";
 import { validacionTelefono } from '../../api/validacionTelefono';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-
+import Footer from '../../Footer/Footer';
+import MediaQuery from 'react-responsive';
 //telefono
 export default class Telefono extends React.Component{
 
@@ -42,7 +43,7 @@ export default class Telefono extends React.Component{
   }
   render(){
   return (
-    <KeyboardAwareScrollView>
+    <KeyboardAwareScrollView style={{backgroundColor: 'white'}}>
         <View style={{backgroundColor: 'white'}}>
          
          <Image style={styles.logo} source={logo}/>
@@ -92,7 +93,20 @@ export default class Telefono extends React.Component{
             </View>
 
         </Modal>
+         
+        <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+              <MediaQuery minDeviceWidth={530}>
+                  <Footer></Footer>
+              </MediaQuery>
+          </MediaQuery>  
 
+           <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+             <MediaQuery maxDeviceWidth={529}> 
+                <View style={{position:"relative",top:"30%"}}>
+                  <Footer></Footer>
+                </View>
+             </MediaQuery>
+           </MediaQuery>  
          </View>
          </KeyboardAwareScrollView>
 

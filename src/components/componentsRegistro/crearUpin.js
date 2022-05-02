@@ -3,7 +3,8 @@ import { StyleSheet, Text, View, Image, Linking, TextInput, Alert, Modal, Toucha
 import logo from "../../../assets/img/logo.png";
 import { insertarUser } from '../../api/insertUser';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-
+import Footer from '../../Footer/Footer';
+import MediaQuery from 'react-responsive';
 //crear upin
 export default class CrearUpin extends React.Component{
   constructor(props){
@@ -69,8 +70,8 @@ export default class CrearUpin extends React.Component{
   render(){
     
   return (
-    <KeyboardAwareScrollView>
-        <View style={{backgroundColor: 'white'}}>
+    <KeyboardAwareScrollView style={{backgroundColor: 'white'}}>
+        <View >
          
          <Image style={styles.logo} source={logo}/>
          <Text style={styles.title}>Crear uPIN.</Text>
@@ -135,7 +136,20 @@ export default class CrearUpin extends React.Component{
         </Modal>
 
          </View>
-         </KeyboardAwareScrollView>
+         <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+              <MediaQuery minDeviceWidth={530}>
+                  <Footer></Footer>
+              </MediaQuery>
+          </MediaQuery>  
+
+           <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+             <MediaQuery maxDeviceWidth={529}> 
+                <View style={{position:"relative",top:"30%"}}>
+                  <Footer></Footer>
+                </View>
+             </MediaQuery>
+           </MediaQuery>  
+    </KeyboardAwareScrollView>
 
          
      

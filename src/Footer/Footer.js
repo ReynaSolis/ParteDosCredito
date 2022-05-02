@@ -12,7 +12,7 @@ export default function Footer(){
 
     return (
         <>
-        
+        <View style={{backgroundColor:"white"}}>
         <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
          <MediaQuery minDeviceWidth={530}>
           <div style={{backgroundColor:"black",opacity:.73,marginTop:"23%"}} className="row">  
@@ -90,6 +90,8 @@ export default function Footer(){
      </div>
        </MediaQuery>
      </MediaQuery> 
+        </View>
+       
        
         </>
       
@@ -150,11 +152,11 @@ const styles = StyleSheet.create({
         fontWeight: 200,
         fontStyle: 'normal',
         fontFamily: "Helvetica Neue LT Std",
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    alignContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+         alignContent: 'center',
       },
       web19203_trustechBy530: {
         opacity: 1,

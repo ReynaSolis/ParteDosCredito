@@ -4,7 +4,8 @@ import logo from "../../../assets/img/logo.png";
 import { validaCodigoTelefono } from '../../api/validaCodigoTelefono';
 import { validacionTelefono } from '../../api/validacionTelefono';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-
+import Footer from '../../Footer/Footer';
+import MediaQuery from 'react-responsive';
 //validacion telefono
 export default class ValidarTelefono extends React.Component{
   constructor(){
@@ -56,7 +57,7 @@ async validado(){
   }
   render(){
   return (
-    <KeyboardAwareScrollView>
+    <KeyboardAwareScrollView style={{backgroundColor: 'white'}}>
         <View style={{backgroundColor: 'white'}}>
          
          <Image style={styles.logo} source={logo}/>
@@ -133,8 +134,21 @@ async validado(){
             </View>
 
         </Modal>
+        <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+              <MediaQuery minDeviceWidth={530}>
+                  <Footer></Footer>
+              </MediaQuery>
+          </MediaQuery>  
 
+           <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+             <MediaQuery maxDeviceWidth={529}> 
+                <View style={{position:"relative",top:"30%"}}>
+                  <Footer></Footer>
+                </View>
+             </MediaQuery>
+           </MediaQuery>  
          </View>
+        
          </KeyboardAwareScrollView>
 
          

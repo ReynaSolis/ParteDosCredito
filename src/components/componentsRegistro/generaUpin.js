@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Linking, TextInput, Alert, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Image, Linking, TextInput, Alert, TouchableOpacity,ScrollView } from "react-native";
 import logo from "../../../assets/img/logo.png";
-
+import Footer from '../../Footer/Footer';
+import MediaQuery from 'react-responsive';
 
 export default class GeneraUpin extends React.Component{
 
@@ -14,7 +15,8 @@ async  validandoObj(){
 
 render(){
   return (
-    <View style={{backgroundColor: 'white'}}>
+    <ScrollView style={{backgroundColor: 'white'}}>
+          <View >
         <Image style={styles.logo} source={logo}/>
          <Text style={styles.title}>A continuacion genera tu uPIN de 6 números secretos y no lo compartas con nadie.</Text>
          <Image style={styles.logo2} source={logo}/>
@@ -29,8 +31,22 @@ render(){
           </TouchableOpacity>
         
         </View>
+        <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+              <MediaQuery minDeviceWidth={530}>
+                  <Footer></Footer>
+              </MediaQuery>
+          </MediaQuery>  
 
-         </View>
+           <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+             <MediaQuery maxDeviceWidth={529}> 
+                <View style={{position:"relative",top:"30%"}}>
+                  <Footer></Footer>
+                </View>
+             </MediaQuery>
+           </MediaQuery>  
+   </View>
+    </ScrollView>
+   
   );}
 }
 

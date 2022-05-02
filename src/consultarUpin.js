@@ -4,6 +4,7 @@ import logo from "../assets/img/logo.png";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import {validacionCurp} from "./api/validacionCurp";
 import { validacionTelefono } from './api/validacionTelefono';
+import Footer from './Footer/Footer';
 
 //recuperacion uPIN
 
@@ -113,6 +114,7 @@ export default class ConsultarUpin extends React.Component{
         </Modal>
 
         </View>
+        <Footer></Footer>
         </KeyboardAwareScrollView>
     )
 }

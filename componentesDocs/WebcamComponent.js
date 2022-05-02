@@ -124,7 +124,7 @@ export default function WebcamComponent({ variableGuardado }) {
             </View>
           }
 
-              <View style={{ marginTop: "5%", height: "10%", bottom: "5%" }}>
+              <View style={{ marginTop: "5%", height: "5%", bottom: "5%" }}>
                  <TouchableOpacity style={{ height: "100%" }} onPress={capturarFoto} >
                    <View style={styles.vista_530}>
                     <Text style={styles.buttonText2}>CAPTURAR</Text>

@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Linking, TextInput, Alert, Modal, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Image, Linking, TextInput, Alert, Modal, TouchableOpacity,ScrollView } from "react-native";
 import logo from "../assets/img/logo.png";
 import { validacionCurp } from './api/validacionCurp';
+import Footer from './Footer/Footer';
+import MediaQuery from 'react-responsive';
 //registro login
 export default class Registro extends React.Component {
 
@@ -30,47 +32,63 @@ export default class Registro extends React.Component {
 
   render(){
   return (
-    <View style={{backgroundColor: 'white'}}>
+    <ScrollView style={{backgroundColor: 'white'}}>
+          <View >
      
-        <Image style={styles.logo} source={logo}/>
-         <Text style={styles.title}>A continuacion crearas tu cuenta IDe</Text>
-         <Image style={styles.logo2} source={logo}/>
-         <Text style={styles.title}>Tus documentos de identidad Electronica estaran cifrados y seguros.</Text>
+     <Image style={styles.logo} source={logo}/>
+      <Text style={styles.title}>A continuacion crearas tu cuenta IDe</Text>
+      <Image style={styles.logo2} source={logo}/>
+      <Text style={styles.title}>Tus documentos de identidad Electronica estaran cifrados y seguros.</Text>
 
-         <View style={styles.btn}>
-                  <TouchableOpacity style={styles.btn2}
-                  onPress={() => this.validaCurp()}
-                  >
-                    <Text style={{color:'white'}}>ENTENDIDO</Text>
-                  </TouchableOpacity>
-                  </View>
+      <View style={styles.btn}>
+               <TouchableOpacity style={styles.btn2}
+               onPress={() => this.validaCurp()}
+               >
+                 <Text style={{color:'white'}}>ENTENDIDO</Text>
+               </TouchableOpacity>
+               </View>
 
-        <Modal
-        transparent={true}
-        visible={this.state.show}
-        >
-          
-            <View style={styles.modalcontainer}>
-            <View style={styles.modaltextcontainer}>
-              <Text style={styles.modaltext}>Telefono celular propio.</Text>
-              <Text style={styles.modaltext2}>Recuerda que por fines de provacidad es importante que lo realices desde tu telefono celular propio.</Text>
+     <Modal
+     transparent={true}
+     visible={this.state.show}
+     >
+       
+         <View style={styles.modalcontainer}>
+         <View style={styles.modaltextcontainer}>
+           <Text style={styles.modaltext}>Telefono celular propio.</Text>
+           <Text style={styles.modaltext2}>Recuerda que por fines de provacidad es importante que lo realices desde tu telefono celular propio.</Text>
 
 
-  
 
-              <View style={styles.btn}>
-                  <TouchableOpacity style={styles.btn2}
-                  onPress={() => this.hidden()}
-                  >
-                    <Text style={{color:'white'}}>ENTENDIDO</Text>
-                  </TouchableOpacity>
-                  </View>
-            </View>
-            </View>
 
-        </Modal>
-
+           <View style={styles.btn}>
+               <TouchableOpacity style={styles.btn2}
+               onPress={() => this.hidden()}
+               >
+                 <Text style={{color:'white'}}>ENTENDIDO</Text>
+               </TouchableOpacity>
+               </View>
          </View>
+         </View>
+
+     </Modal>
+      
+     <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+              <MediaQuery minDeviceWidth={530}>
+                  <Footer></Footer>
+              </MediaQuery>
+          </MediaQuery>  
+
+           <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+             <MediaQuery maxDeviceWidth={529}> 
+                <View style={{position:"relative",top:"30%"}}>
+                  <Footer></Footer>
+                </View>
+             </MediaQuery>
+           </MediaQuery>  
+      </View>
+    </ScrollView>
+ 
   );
 }
 }

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, Linking, TextInput, Alert, Modal, Toucha
 import logo from "../assets/img/logo.png";
 import {validacionCuenta } from "./api/auth"
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-
+import Footer from './Footer/Footer';
 //upin
 export default class Upin extends React.Component{
   
@@ -112,6 +112,7 @@ export default class Upin extends React.Component{
 
         </Modal>
          </View>
+         <Footer></Footer>
          </KeyboardAwareScrollView>
   );
 }

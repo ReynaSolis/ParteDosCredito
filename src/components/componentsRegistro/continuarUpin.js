@@ -1,8 +1,10 @@
 import React, { useState, Component } from 'react';
-import { StyleSheet, Text, View, Image, Linking, TextInput, Alert, Modal, TouchableOpacity} from "react-native";
+import { StyleSheet, Text, View, Image, Linking, TextInput, Alert, Modal, TouchableOpacity,ScrollView} from "react-native";
 import logo from "../../../assets/img/logo.png";
 import {validacionCuenta } from "../../api/auth";
 import { CheckBox } from 'react-native-elements';
+import Footer from '../../Footer/Footer';
+import MediaQuery from 'react-responsive';
 
 export default class ContinuarUpin extends React.Component {
   constructor(props) {
@@ -62,7 +64,8 @@ export default class ContinuarUpin extends React.Component {
 
   render() {
     return (
-      <View style={{backgroundColor: 'white'}}>
+     <ScrollView style={{backgroundColor: 'white'}}>
+         <View >
         <Image style={styles.logo} source={logo} />
         <Text style={styles.title}>Acceso con uPIN</Text>
         <Text style={styles.upin}>uPIN:</Text>
@@ -165,8 +168,22 @@ export default class ContinuarUpin extends React.Component {
             </View>
           </View>
         </Modal>
+        <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+              <MediaQuery minDeviceWidth={530}>
+                  <Footer></Footer>
+              </MediaQuery>
+          </MediaQuery>  
 
+           <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+             <MediaQuery maxDeviceWidth={529}> 
+                <View style={{position:"relative",top:"30%"}}>
+                  <Footer></Footer>
+                </View>
+             </MediaQuery>
+           </MediaQuery> 
       </View>
+     </ScrollView>
+     
 
 
 

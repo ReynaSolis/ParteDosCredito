@@ -4,6 +4,7 @@ import logo from "../assets/img/logo.png";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { validaCodigoTelefono } from './api/validaCodigoTelefono';
 import { nuevoUpin } from './api/nuevoUpin';
+import Footer from './Footer/Footer';
 //nuevo upin
 export default class NuevoUpin extends React.Component{
   constructor(props){
@@ -206,7 +207,7 @@ export default class NuevoUpin extends React.Component{
         </Modal>
 
          </View>
-
+         <Footer></Footer>
          </KeyboardAwareScrollView>
      
   );

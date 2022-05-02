@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, Image, Linking, TextInput, Modal, TouchableOpac
 import logo from "../assets/img/logo.png";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { validacionCurp } from './api/validacionCurp';
+import Footer from './Footer/Footer';
+import MediaQuery from 'react-responsive';
 //curp
 export default class Login extends React.Component {
 
@@ -63,9 +65,9 @@ export default class Login extends React.Component {
   render() {
 
     return (
-      <KeyboardAwareScrollView>
+      <KeyboardAwareScrollView style={{backgroundColor:"white"}}>
 
-        <View style={{backgroundColor: 'white'}}>
+        <View >
           <Text style={styles.title}>Bienvenida/o</Text>
           <Image style={styles.logo} source={logo} />
           <Text style={styles.curp}>Ingresa tu CURP:</Text>
@@ -139,8 +141,21 @@ export default class Login extends React.Component {
 
           </Modal>
 
+       
+       
+           <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+              <MediaQuery minDeviceWidth={530}>
+                  <Footer></Footer>
+              </MediaQuery>
+          </MediaQuery>  
 
-
+           <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
+             <MediaQuery maxDeviceWidth={529}> 
+                <View style={{position:"relative",top:"30%"}}>
+                  <Footer></Footer>
+                </View>
+             </MediaQuery>
+           </MediaQuery>   
         </View>
       </KeyboardAwareScrollView>
 
@@ -154,6 +169,13 @@ export default class Login extends React.Component {
 
 //styles
 const styles = StyleSheet.create({
+  container:{
+    marginLeft:5,
+    marginRight:5,
+    marginTop:20,
+    height:"35%",
+    backgroundColor:"white"
+} , 
   title: {
     marginLeft: 'auto',
     marginRight: 'auto',

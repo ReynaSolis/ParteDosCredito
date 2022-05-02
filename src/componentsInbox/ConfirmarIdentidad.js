@@ -4,6 +4,7 @@ import logo from "../../assets/img/logo.png";
 import WebcamComponent from "../../componentesDocs/WebcamComponent";
 import MediaQuery from 'react-responsive';
 import ContextoUsuario from './context';
+import Footer from '../Footer/Footer';
 
 
 //importar componentes que podriamos usar de react
@@ -102,6 +103,10 @@ return (
                  </View>   
             </View>   
           }
+
+             <View style={{position:'absolute',top:"100%",width:"100%",marginTop:10}}>
+               <Footer></Footer>
+             </View> 
             </MediaQuery>
      </MediaQuery>    
 
@@ -165,6 +170,12 @@ return (
                  </View>   
             </View>   
           }
+
+
+
+<View style={{position:'absolute',top:"100%",width:"100%",marginTop:10}}>
+               <Footer></Footer>
+             </View> 
        </MediaQuery>
      </MediaQuery>  
 

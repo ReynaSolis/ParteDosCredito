@@ -7,6 +7,7 @@ import WebcamComponent from "../../componentesDocs/WebcamComponent";
 import MediaQuery from 'react-responsive';
 //aqui
 import ContextoUsuario from './context';
+import Footer from "../Footer/Footer"
 
 
 //importar componentes que podriamos usar de react
@@ -108,6 +109,7 @@ const HomeScreen = ({ navigation }) => {
                  <Image source={logo} style={styles.logo_530} />
                  <WebcamComponent variableGuardado={variableGuardado}></WebcamComponent>
                </View>
+               
             )}
 
             {!mostrarCamara && (
@@ -234,21 +236,35 @@ const HomeScreen = ({ navigation }) => {
               </View>
 
              )}
+
+             <View style={{position:'absolute',top:"100%",width:"100%",marginTop:10}}>
+               <Footer></Footer>
+             </View> 
+
             </MediaQuery>
         </MediaQuery>    
 
         <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
           <MediaQuery maxDeviceWidth={529}>  
+
             {mostrarCamara && (
-               <View style={styles.container}>
+              <>
+                  <View style={styles.container}>
                  <Image source={logo} style={styles.logo} />
                  <WebcamComponent variableGuardado={variableGuardado}></WebcamComponent>
+                 
                </View>
+               <View style={{position:'absolute',top:"100%",width:"100%",marginTop:10}}>
+                 <Footer></Footer>
+               </View> 
+             
+              </>
+             
             )}
 
             {!mostrarCamara && (
-
-              <View style={styles.container}>
+                <>
+                 <View style={styles.container}>
                 <Image source={logo} style={styles.logo} />
                 <form onSubmit={Confirmar} method="post" encType="multipart/form-data">
                   <Text style={styles.header}>Sube tus Documentos{"\n"}{"\n"}{" "}</Text>
@@ -368,14 +384,20 @@ const HomeScreen = ({ navigation }) => {
 
                 </form>
               </View>
+              <View style={{position:'relative',top:"10%"}}>
+              <Footer></Footer>
+            </View> 
+                </>
+             
 
              )}
+
+            
+
           </MediaQuery>
         </MediaQuery>         
       
-        <View styles= {{position: 'absolute', bottom: 0}}>
-     
-        </View>
+        
 
     </ScrollView>
     
@@ -390,7 +412,10 @@ const styles = StyleSheet.create({
   container: {
     paddingLeft: "6%",
     paddingRight: "6%",
-    backgroundColor:"white"
+    backgroundColor:"white",
+
+
+
   },
   header: {
     fontWeight: "bold",
