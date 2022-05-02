@@ -22,8 +22,8 @@ export default class Login extends React.Component {
 
 
   async validado() {
-    if (this.state.curpv.length == 18) {
 
+    if (this.state.curpv.length == 18) {
       const obj = { 
         curp: this.state.curpv,
         identificadorJourney: "501"
@@ -75,7 +75,7 @@ export default class Login extends React.Component {
             maxLength={18}
             autoCapitalize='characters'
             password={true}
-            onChangeText={(curpv) => this.changecurp(curpv)}
+            onChangeText={(curpv) => this.changecurp(curpv.toUpperCase())}
 
           />
 
@@ -185,6 +185,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor:'rgba(206, 31, 40, 1)',
     textTransform: 'uppercase',
+    autoCapitalize: "characters"
     
   },
   curpgob: {

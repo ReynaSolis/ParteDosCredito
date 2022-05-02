@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
     textAlign: 'center',
     fontWeight: 'bold',
- 
+    textDecorationLine: 'underline',
     fontSize:15
    },
          //modal
