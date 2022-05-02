@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import logo from "../../assets/img/logo.png"
-
+import Footer from './Footer';
 //importar componentes que podriamos usar de react
 import {
     SafeAreaView,
@@ -64,12 +64,15 @@ import {
                       
                       
                       </View>
-
+                     
 
 
                                  
                </View>
-            </View>             
+            </View> 
+            <View style={{position:'absolute'}}>
+              <Footer></Footer>
+            </View>            
           </ScrollView>
       )
   }
@@ -107,7 +110,7 @@ const styles = StyleSheet.create({
     fontSize:17,
     fontWeight:500,
     marginTop:20,
-    te
+    
 
   },
   textEnvianos:{
