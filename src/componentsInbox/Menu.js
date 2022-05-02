@@ -1,4 +1,6 @@
 import React, {useState, useContext} from 'react';
+import logo from "../../assets/img/logo.png"
+import Footer from './Footer';
 
 //importar componentes que podriamos usar de react
 import {
@@ -18,8 +20,6 @@ import {
   } from 'react-native';
 
 
-
-
   const Menu = ({ navigation }) => {
      const [nombreUsuario,setNombreUsuario]=useState("Jose Antonio Santos Cruz");
 
@@ -30,6 +30,7 @@ import {
       return (
           <ScrollView  style={{backgroundColor:"white"}}>
             <View style={styles.container}>
+               <Image style={styles.logo} source={logo} />
                <Text style={styles.textTitle}>Bienvenido {nombreUsuario}</Text> 
                <View style={styles.menu}>
                     
@@ -60,6 +61,10 @@ import {
                       </TouchableOpacity>
                                  
                </View>
+               <View>
+                 <Footer></Footer>
+               </View>
+             
             </View>             
           </ScrollView>
       )
@@ -73,13 +78,21 @@ import {
            marginRight:5,
            marginTop:20,
     } , 
+    logo: {
+      width: 150,
+      height: 150,
+      display: 'flex',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      marginBottom: 5
+    },
     textTitle: {
       color: "black",
       alignSelf:"center",
       fontFamily: "Helvetica Neue LT Std",
       fontSize:18,
       fontWeight:"bold",
-      marginTop:40
+    
     },
     textContenido: {
         color: "black",

@@ -56,12 +56,11 @@ export default function App() {
       capturaIdentidad,setCapturaIdentidad,
                             }}>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Menu">
         <Stack.Screen name= "Login" component={Login} options={{title:''}} />
         <Stack.Screen name= "Upin" component={Upin} options={{title:''}} />
         <Stack.Screen name= "ConsultarUpin" component={ConsultarUpin} options={{title:''}} />
         <Stack.Screen name= "Registro" component={Registro} options={{title:''}} />
-
         <Stack.Screen name= "Telefono" component={Telefono} options={{title:''}} />
         <Stack.Screen name= "ValidarTelefono" component={ValidarTelefono} options={{title:''}} />
         <Stack.Screen name= "GeneraUpin" component={GeneraUpin} options={{title:''}} />
