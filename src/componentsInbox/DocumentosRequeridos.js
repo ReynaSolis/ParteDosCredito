@@ -70,7 +70,7 @@ import {
                                  
                </View>
             </View> 
-            <View style={{position:'absolute'}}>
+            <View style={{position:'absolute',top:"100%"}}>
               <Footer></Footer>
             </View>            
           </ScrollView>

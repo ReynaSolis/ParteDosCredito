@@ -61,12 +61,12 @@ import {
                       </TouchableOpacity>
                                  
                </View>
-               <View style={{position:'relative',bottom:"0%"}}>
-              <Footer></Footer>
-            </View>   
+             
              
             </View>  
-                     
+            <View style={{position:'relative',top:"100%"}}>
+              <Footer></Footer>
+            </View>              
           </ScrollView>
       )
   }
