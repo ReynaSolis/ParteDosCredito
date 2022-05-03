@@ -40,6 +40,10 @@ export default function App() {
   const [capturaIdentificacion,setCapturaIdentificacion]=useState();
   const [capturaCredito,setCapturaCredito]=useState();
   const [capturaIdentidad,setCapturaIdentidad]=useState();
+  //datosReyna
+  const [curp,setCurp]=useState();
+  const [telefono,setTelefono]=useState();
+
   
  /* const config = {
     screens: {
@@ -57,14 +61,38 @@ export default function App() {
         path:'login'
       },
       Registro: {
-        path: '/login/registro/:curp?', 
+        path: '/login/registro/', 
       },
       Telefono: {
-        path: '/login/telefono/:curp?', 
+        path: '/login/telefono/', 
       },
       ValidarTelefono:{
         path: '/login/validarTelefono', 
-      }
+      },
+      GeneraUpin:{
+        path: '/login/generaUpin', 
+      },
+      CrearUpin:{
+        path: '/login/crearUpin', 
+      },
+      ContinuarUpin:{
+        path: '/login/continuarUpin', 
+      },
+      Inbox:{
+        path: '/login/inbox', 
+      },
+      NuevoUpin:{
+        path: '/login/nuevoUpin', 
+      },
+      Menu:{
+        path: '/login/menu', 
+      },
+      DocumentosRequeridos:{
+        path: '/login/documentosRequeridos', 
+      },
+      ConfirmarIdentidad:{
+        path: '/login/confirmarIdentidad', 
+      },
     },
   };
 
@@ -88,9 +116,10 @@ export default function App() {
       capturaDomicilio,setCapturaDomicilio,
       capturaIdentidad,setCapturaIdentidad,
                             }}>
+                              
     <NavigationContainer linking={linking}>
       <Stack.Navigator screenOptions={{headerShown:false}}
-       initialRouteName="Login" >
+       initialRouteName="Menu" >
         <Stack.Screen name= "Login" component={Login} options={{title:''}} />
         <Stack.Screen name= "Upin" component={Upin} options={{title:''}} />
         <Stack.Screen name= "ConsultarUpin" component={ConsultarUpin} options={{title:''}} />

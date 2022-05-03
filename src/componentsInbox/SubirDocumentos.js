@@ -39,27 +39,32 @@ const HomeScreen = ({ navigation }) => {
 
   const [variableGuardado, setVariableGuardado] = useState();
 
+
+
   const Confirmar = async (e) => {
     e.preventDefault();
 
     //const form = new FormData(e.target);
     const form = new FormData();
-    form.append("credito", creditoFile);
-    form.append("nomina", nominaFile);
-    form.append("domicilio", domicilioFile);
-    await fetch("http://localhost:4000/asd", {
+    form.append("files", creditoFile);
+    form.append("files", nominaFile);
+    form.append("files", domicilioFile);
+    form.append("folder", "SACA951206HDFNRN04");
+
+    await fetch("http://18.237.203.56/folder/upload", {
       method: "post",
       body: form,
     });
 
     const data = new FormData();
-    data.append("foto", capturaIdentificacion.uri);
-    await fetch("http://localhost:4000/foto/asd/identificacion", {
+    data.append("file", capturaIdentificacion.uri);
+    data.append("fileName","SACA951206HDFNRN04/solicitud.pdf")
+    await fetch("http://18.237.203.56/file/upload", {
       method: "post",
       body: data,
     })
     navigation.navigate("confirmarIdentidad");
-  };
+  }
 
   const subirCredito = (event) => {
     setCreditoFile(event.target.files[0]);
@@ -257,7 +262,7 @@ const HomeScreen = ({ navigation }) => {
               <View style={styles.container}>
                 <Image source={logo} style={styles.logo} />
                 <form onSubmit={Confirmar} method="post" encType="multipart/form-data">
-                  <Text style={styles.header}>Sube tus Documentos{"\n"}{"\n"}{" "}</Text>
+                  <Text style={styles.header}>Sube tus Documentossss{"\n"}{"\n"}{" "}</Text>
                   <Text style={styles.header2}>Procura que tus documentos sean legibles{"\n"}{"\n"}</Text>
             
                   <View style={{ top: "5%" }}>

@@ -65,6 +65,26 @@ export default function WebcamComponent({ variableGuardado }) {
       })
   }
 
+  function dataURItoBlob(dataURI) {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    var byteString;
+    if (dataURI.split(',')[0].indexOf('base64') >= 0)
+        byteString = atob(dataURI.split(',')[1]);
+    else
+        byteString = unescape(dataURI.split(',')[1]);
+  
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+  
+    // write the bytes of the string to a typed array
+    var ia = new Uint8Array(byteString.length);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+  
+    return new Blob([ia], {type:mimeString});
+  }
+
   const confirmarFoto = async() => {
     setMostarCamara(false)
     if (variableGuardado == "domicilio") {
@@ -81,12 +101,15 @@ export default function WebcamComponent({ variableGuardado }) {
     }
     else if (variableGuardado == "identidad") {
       
+      let conversion= dataURItoBlob(foto.uri)
+   
       const data = new FormData();
-      data.append("foto", foto.uri);
-        await fetch("http://localhost:4000/foto/asd/identidad", {
+      data.append("file", conversion);
+      data.append("fileName","SACA951206HDFNRN04/selfie.png")
+      await fetch("http://18.237.203.56/file/upload", {
         method: "post",
         body: data,
-      });
+      })
       setIdentidad(true)
     }
   }

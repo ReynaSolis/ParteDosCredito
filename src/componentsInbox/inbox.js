@@ -40,7 +40,7 @@ const HomeScreen = ({ navigation }) => {
 
   const [variableGuardado, setVariableGuardado] = useState();
 
-  const Confirmar = async (e) => {
+  /*const Confirmar = async (e) => {
     e.preventDefault();
 
     //const form = new FormData(e.target);
@@ -60,7 +60,53 @@ const HomeScreen = ({ navigation }) => {
       body: data,
     })
     navigation.navigate("confirmarIdentidad");
-  };
+  };*/
+  function dataURItoBlob(dataURI) {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    var byteString;
+    if (dataURI.split(',')[0].indexOf('base64') >= 0)
+        byteString = atob(dataURI.split(',')[1]);
+    else
+        byteString = unescape(dataURI.split(',')[1]);
+  
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+  
+    // write the bytes of the string to a typed array
+    var ia = new Uint8Array(byteString.length);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+  
+    return new Blob([ia], {type:mimeString});
+  }
+
+  const Confirmar = async (e) => {
+    e.preventDefault();
+    let conversion= dataURItoBlob(capturaIdentificacion.uri)
+    //const form = new FormData(e.target);
+    const form = new FormData();
+    form.append("files", creditoFile);
+    form.append("files", nominaFile);
+    form.append("files", domicilioFile);
+    form.append("folder", "SACA951206HDFNRN04");
+
+    await fetch("http://18.237.203.56/folder/upload", {
+      method: "post",
+      body: form,
+    });
+    
+
+    const data = new FormData();
+    data.append("file", conversion);
+    data.append("fileName","SACA951206HDFNRN04/identificacion.png")
+    await fetch("http://18.237.203.56/file/upload", {
+      method: "post",
+      body: data,
+    })
+
+    navigation.navigate("confirmarIdentidad");
+  }
 
   const subirCredito = (event) => {
     setCreditoFile(event.target.files[0]);

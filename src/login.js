@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
    
     textTransform: 'uppercase',
     height: 40, 
-    borderColor:'rgba(164, 167, 169, 1)',
+     borderColor:'rgba(164, 167, 169, 1)',
     "borderTopLeftRadius": 5,
     "borderTopRightRadius": 4,
     "borderBottomLeftRadius": 4,
