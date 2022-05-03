@@ -77,7 +77,7 @@ export default class Login extends React.Component {
             maxLength={18}
             autoCapitalize='characters'
             password={true}
-            onChangeText={(curpv) => this.changecurp(curpv)}
+            onChangeText={(curpv) => this.changecurp(curpv.toUpperCase())}
 
           />
 
