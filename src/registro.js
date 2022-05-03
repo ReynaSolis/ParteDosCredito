@@ -6,6 +6,17 @@ import Footer from './Footer/Footer';
 import MediaQuery from 'react-responsive';
 //registro login
 export default class Registro extends React.Component {
+  config = {
+    initialRouteName: 'Feed',
+    screens: {
+      Registro: {
+        path: '/login/',
+     
+        
+       
+      },
+    },
+  };
 
   constructor(){
     super()

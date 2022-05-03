@@ -108,12 +108,13 @@ import {
                                <Text style={styles.textContenido}>Crédito Para Ti: Solicitud de Envío de Documentos</Text>
                           </View>
                       </TouchableOpacity>           
-               </View>            
+               </View>      
+               <View style={{position:'relative',marginTop:"65%",height:"1%"}}>
+                 <Footer></Footer>
+               </View> 
                 </View>  
 
-               <View style={{position:'relative',top:"100%"}}>
-                 <Footer></Footer>
-               </View>    
+                
               </MediaQuery>
             </MediaQuery>
        
@@ -129,10 +130,9 @@ import {
 
   const styles = StyleSheet.create({
     container:{
-           marginLeft:5,
-           marginRight:5,
-           marginTop:20,
-           height:"35%"
+          
+           marginTop:0,
+           height:"100%"
     } , 
     container_530:{
       marginLeft:5,
@@ -141,8 +141,8 @@ import {
       height:"25%"
     } , 
     logo: {
-      width: 200,
-      height: 200,
+      width: 150,
+      height: 150,
       display: 'flex',
       marginLeft: 'auto',
       marginRight: 'auto',
@@ -190,7 +190,7 @@ import {
       },
        menu:{
        flex:1,
-       marginTop:40,
+       marginTop:20,
        marginLeft:20,
        marginRight:20
     },

@@ -40,6 +40,39 @@ export default function App() {
   const [capturaIdentificacion,setCapturaIdentificacion]=useState();
   const [capturaCredito,setCapturaCredito]=useState();
   const [capturaIdentidad,setCapturaIdentidad]=useState();
+  
+ /* const config = {
+    screens: {
+      Login: 'login/',
+      Upin: 'login/Upin/',
+      Registro:'login/registro',
+      Telefono:'login/telefono'
+    },
+  };*/
+
+  const config = {
+    initialRouteName: 'Feed',
+    screens: {
+      Login:{
+        path:'login'
+      },
+      Registro: {
+        path: '/login/registro/:curp?', 
+      },
+      Telefono: {
+        path: '/login/telefono/:curp?', 
+      },
+      ValidarTelefono:{
+        path: '/login/validarTelefono', 
+      }
+    },
+  };
+
+  const linking = {
+    prefixes:  ['https://mychat.com', 'mychat://'],
+    config,
+  };
+  
 
   return (
     <ContextoUsuario.Provider value={{domicilio,setDomicilio,
@@ -55,9 +88,9 @@ export default function App() {
       capturaDomicilio,setCapturaDomicilio,
       capturaIdentidad,setCapturaIdentidad,
                             }}>
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <Stack.Navigator screenOptions={{headerShown:false}}
-      initialRouteName="Login">
+       initialRouteName="Login" >
         <Stack.Screen name= "Login" component={Login} options={{title:''}} />
         <Stack.Screen name= "Upin" component={Upin} options={{title:''}} />
         <Stack.Screen name= "ConsultarUpin" component={ConsultarUpin} options={{title:''}} />

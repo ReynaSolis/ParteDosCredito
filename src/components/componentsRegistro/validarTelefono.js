@@ -66,7 +66,7 @@ async validado(){
          
 
          <TextInput style={styles.input} 
-         placeholder="codigo 4 digitos"
+         placeholder=" codigo 4 digitos"
          maxLength={4}
          keyboardType="numeric"
          onChangeText={(telva)=>this.changetelva(telva)}
@@ -185,7 +185,20 @@ const styles = StyleSheet.create({
     marginLeft:20,
     marginRight:20,
     borderWidth: 1,
-    borderColor:'rgba(206, 31, 40, 1)',
+   
+
+    borderColor:'rgba(164, 167, 169, 1)',
+    "borderTopLeftRadius": 5,
+    "borderTopRightRadius": 4,
+    "borderBottomLeftRadius": 4,
+    "borderBottomRightRadius": 4,
+    "shadowColor": "rgb(0,  0,  0)",
+    "shadowOpacity": 0.47058823529411764,
+    "shadowOffset": {
+      "width": 0,
+      "height": 3
+    },
+    "shadowRadius": 6,
     
    },
    btn: {

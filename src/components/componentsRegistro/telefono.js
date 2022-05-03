@@ -55,7 +55,7 @@ export default class Telefono extends React.Component{
         <Image style={styles.bandera} source={mexico}/>
         <Text style={styles.pais}>+52</Text>
          <TextInput style={styles.input} 
-         placeholder="10 digitos"
+         placeholder=" 10 digitos"
          maxLength={10}
          keyboardType="numeric"
          onChangeText={(telv)=>this.changetel(telv)}
@@ -169,7 +169,20 @@ const styles = StyleSheet.create({
     height:40,
     width:250, 
     borderWidth: 1,
-    borderColor:'rgba(206, 31, 40, 1)',
+    
+
+    borderColor:'rgba(164, 167, 169, 1)',
+    "borderTopLeftRadius": 5,
+    "borderTopRightRadius": 4,
+    "borderBottomLeftRadius": 4,
+    "borderBottomRightRadius": 4,
+    "shadowColor": "rgb(0,  0,  0)",
+    "shadowOpacity": 0.47058823529411764,
+    "shadowOffset": {
+      "width": 0,
+      "height": 3
+    },
+    "shadowRadius": 6,
    
    },
    btn: {

@@ -305,8 +305,8 @@ const styles = StyleSheet.create({
         height:30,
    },
    logo: {
-    width: 200,
-    height: 200,
+    width: 150,
+    height: 150,
     alignSelf:"center"
   },
   logo_530: {

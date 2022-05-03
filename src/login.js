@@ -73,7 +73,7 @@ export default class Login extends React.Component {
           <Text style={styles.curp}>Ingresa tu CURP:</Text>
 
           <TextInput style={styles.input}
-            placeholder="Ingresa los 18 caracteres"
+            placeholder=" Ingresa los 18 caracteres"
             maxLength={18}
             autoCapitalize='characters'
             password={true}
@@ -169,6 +169,7 @@ export default class Login extends React.Component {
 
 //styles
 const styles = StyleSheet.create({
+  
   container:{
     marginLeft:5,
     marginRight:5,
@@ -192,6 +193,7 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
     marginBottom: 20,
     marginTop:10
+    
   },
   curp: {
     color: "black",
@@ -200,13 +202,26 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   input: {
-    height: 40,
+    
     marginTop: 10,
     marginLeft: 20,
     marginRight: 20,
     borderWidth: 1,
-    borderColor:'rgba(206, 31, 40, 1)',
+   
     textTransform: 'uppercase',
+    height: 40, 
+    borderColor:'rgba(164, 167, 169, 1)',
+    "borderTopLeftRadius": 5,
+    "borderTopRightRadius": 4,
+    "borderBottomLeftRadius": 4,
+    "borderBottomRightRadius": 4,
+    "shadowColor": "rgb(0,  0,  0)",
+    "shadowOpacity": 0.47058823529411764,
+    "shadowOffset": {
+      "width": 0,
+      "height": 3
+    },
+    "shadowRadius": 6,
     
   },
   curpgob: {

@@ -30,9 +30,7 @@ export default class ContinuarUpin extends React.Component {
       }else{
         console.log("no inicio sesion.")
       }
-
     }
-
   }
 
   checked() {
@@ -65,7 +63,7 @@ export default class ContinuarUpin extends React.Component {
   render() {
     return (
      <ScrollView style={{backgroundColor: 'white'}}>
-         <View >
+         <View style={{height:"100%"}} >
         <Image style={styles.logo} source={logo} />
         <Text style={styles.title}>Acceso con uPIN</Text>
         <Text style={styles.upin}>uPIN:</Text>
@@ -142,9 +140,6 @@ export default class ContinuarUpin extends React.Component {
                 de sus Clientes y de los interesados receptores de informacion del cliente, por lo que los datos recabados en la plataforma,
                 estaran protegidos conforme a los dispuesto por la Ley General de Proteccion de Datos Personales en Posesion de los Sujetos
                 Obligados.</Text>
-
-
-
               <View>
                 <CheckBox
                   title="Acepto la Politica de Privacidad"
@@ -152,8 +147,6 @@ export default class ContinuarUpin extends React.Component {
                   onPress={() => this.checked()}
                 />
               </View>
-
-
               <View style={styles.btn}>
               <TouchableOpacity style={styles.btn2}
                   onPress={() => this.inbox()}
@@ -176,17 +169,14 @@ export default class ContinuarUpin extends React.Component {
 
            <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
              <MediaQuery maxDeviceWidth={529}> 
-                <View style={{position:"relative",top:"30%"}}>
+                <View style={{position:"relative",top:"80%"}}>
                   <Footer></Footer>
                 </View>
              </MediaQuery>
            </MediaQuery> 
       </View>
      </ScrollView>
-     
-
-
-
+ 
     );
   }
 }
