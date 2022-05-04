@@ -47,6 +47,7 @@ export default class CrearUpin extends React.Component{
         upin: this.state.upinew1,
         identificadorJourney: "501"
       };*/
+      //console.log(curp + tel + upin)
       const objInt2= {
         curp: curp,
         telefono: tel, 
@@ -59,6 +60,7 @@ export default class CrearUpin extends React.Component{
       const resgistrar=await insertarUser(objInt2);
 
       if(resgistrar.codigo==="000"){
+        //console.log("registrado")
         this.props.navigation.navigate('ContinuarUpin')
       }else{
         console.log("Algo falló");
