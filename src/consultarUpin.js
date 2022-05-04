@@ -155,9 +155,9 @@ const styles = StyleSheet.create({
       
        },
        btn: {
-        marginTop: 20,
+        marginTop: 50,
         marginLeft: 20,
-        marginBottom: 20,
+        marginBottom: 250,
         marginRight: 20,
         borderWidth: 1,
         borderRadius: 20,
