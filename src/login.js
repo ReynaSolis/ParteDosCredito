@@ -28,26 +28,28 @@ export default class Login extends React.Component {
   //funcion para poder cambiar el input
   changecurp(curpv) {
    // setCurp(curp);
-    this.setState({ curpv })
+    // this.setState({ curpv })
   }
 
 
   async validado(curp) {
-    console.log(curp)
+    
     if (curp.length == 18) {
-
       const obj2 = {
         curpTitular: curp,
       }
 
       const apiEvaluacion = await validacionCurpEvaluacion (obj2);
       if(apiEvaluacion.codigo === "000"){
-        const nombre = apiEvaluacion.nombre;
 
+        const nombre = apiEvaluacion.nombre;
+        this.context.setNombre(nombre)
+        
         const obj = { 
           curp: curp,
           identificadorJourney: "501"
         }
+
         const apiResponseCurp = await validacionCurp(obj);
       if (apiResponseCurp.codigo === "000") {
         //console.log("registrado")

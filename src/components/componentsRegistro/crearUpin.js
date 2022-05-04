@@ -24,6 +24,7 @@ export default class CrearUpin extends React.Component{
   changeupinew1(upinew1){
     this.setState({upinew1})
     }
+
   changeupinew2(upinew2){
   this.setState({upinew2})
   }
@@ -35,7 +36,7 @@ export default class CrearUpin extends React.Component{
   if(upin.length==6 && this.state.upinew2.length==6 &&
     upin=== this.state.upinew2){
       
-      const objM={
+     /* const objM={
         telefono:this.props.route.params.telefono,
         curp:this.props.route.params.curp
       };
@@ -45,7 +46,7 @@ export default class CrearUpin extends React.Component{
         telefono: objM.telefono, 
         upin: this.state.upinew1,
         identificadorJourney: "501"
-      };
+      };*/
       const objInt2= {
         curp: curp,
         telefono: tel, 

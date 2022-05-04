@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react';
 import logo from "../../assets/img/logo.png"
 import Footer from "../Footer/Footer"
 import MediaQuery from 'react-responsive'
+import ContextoUsuario from './context';
 //importar componentes que podriamos usar de react
 import {
     SafeAreaView,
@@ -24,7 +25,7 @@ import {
 
   const DocumentosRequeridos = ({ navigation }) => {
      const [nombreUsuario,setNombreUsuario]=useState("Jose Antonio Santos Cruz");
-
+     const {nombre}=useContext(ContextoUsuario)
      const cargarDocumentos=()=>{
         navigation.navigate("Inbox");
     }
@@ -36,7 +37,7 @@ import {
               <MediaQuery minDeviceWidth={530}>
               <View style={styles.container_530}>
                  <Image style={styles.logo_530} source={logo} />
-                 <Text style={styles.textTitle_530}>Bienvenido {nombreUsuario}</Text> 
+                 <Text style={styles.textTitle_530}>Bienvenido {nombre}</Text> 
                  <View style={styles.menu_530}>
 
                      <View style={{flexDirection: "row",justifyContent:"flex-start",}} >                  
@@ -78,7 +79,7 @@ import {
                <MediaQuery maxDeviceWidth={529}>  
                <View style={styles.container}>
                  <Image style={styles.logo} source={logo} />
-                 <Text style={styles.textTitle}>Bienvenido {nombreUsuario}</Text> 
+                 <Text style={styles.textTitle}>Bienvenido {nombre}</Text> 
                  <View style={styles.menu}>
 
                      <View style={{flexDirection: "row",justifyContent:"flex-start",}} >                  

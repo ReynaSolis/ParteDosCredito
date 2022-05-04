@@ -45,6 +45,7 @@ export default function App() {
   const [tel,setTel]=useState();
   const [telefonoValido,setTelefonoValido]=useState()
   const [upin,setUpin]=useState()
+  const [nombre,setNombre]=useState()
 
   
  /* const config = {
@@ -57,49 +58,50 @@ export default function App() {
   };*/
 
   const config = {
-    initialRouteName: 'Feed',
+   
     screens: {
       Login:{
-        path:'login'
+        path:'inbox'
       },
       Registro: {
-        path: '/login/registro/', 
+        path: '/inbox/registro/', 
       },
       Telefono: {
-        path: '/login/telefono/', 
+        path: '/inbox/telefono/', 
       },
       ValidarTelefono:{
-        path: '/login/validarTelefono', 
+        path: '/inbox/validarTelefono', 
       },
       GeneraUpin:{
-        path: '/login/generaUpin', 
+        path: '/inbox/generaUpin', 
       },
       CrearUpin:{
-        path: '/login/crearUpin', 
+        path: '/inbox/crearUpin', 
       },
       ContinuarUpin:{
-        path: '/login/continuarUpin', 
+        path: '/inbox/continuarUpin', 
       },
       Inbox:{
-        path: '/login/inbox', 
+        path: '/inbox/subirDocumentos', 
       },
       NuevoUpin:{
-        path: '/login/nuevoUpin', 
+        path: '/inbox/nuevoUpin', 
       },
       Menu:{
-        path: '/login/menu', 
+        path: '/inbox/menu', 
       },
       DocumentosRequeridos:{
-        path: '/login/documentosRequeridos', 
+        path: '/inbox/documentosRequeridos', 
       },
+
       ConfirmarIdentidad:{
-        path: '/login/confirmarIdentidad', 
+        path: '/inbox/confirmarIdentidad', 
       },
     },
   };
 
   const linking = {
-    prefixes:  ['https://mychat.com', 'mychat://'],
+    prefixes:  [],
     config,
   };
   
@@ -121,6 +123,7 @@ export default function App() {
       tel,setTel,
       telefonoValido,setTelefonoValido,
       upin,setUpin,
+      nombre,setNombre
                             }}>
                               
     <NavigationContainer linking={linking}>
@@ -139,7 +142,7 @@ export default function App() {
         <Stack.Screen name= "NuevoUpin" component={NuevoUpin} options={{title:''}} />
         <Stack.Screen name= "Menu" component={Menu}  options={{title:''}} />
         <Stack.Screen name= "DocumentosRequeridos" component={DocumentosRequeridos} options={{title:''}} />
-        <Stack.Screen name="confirmarIdentidad" component={ConfirmarIdentidad} options={{title:''}} />
+        <Stack.Screen name="ConfirmarIdentidad" component={ConfirmarIdentidad} options={{title:''}} />
       </Stack.Navigator>
       </NavigationContainer>
       </ContextoUsuario.Provider>

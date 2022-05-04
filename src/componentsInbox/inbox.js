@@ -34,7 +34,7 @@ const HomeScreen = ({ navigation }) => {
   const { capturaIdentificacion } = useContext(ContextoUsuario);
 
   const {curp}=useContext(ContextoUsuario)
-  
+  const {nombre}=useContext(ContextoUsuario)
   
   const [domicilioFile, setDomicilioFile] = useState();
   const [nominaFile, setNominaFile] = useState();
@@ -86,7 +86,7 @@ const HomeScreen = ({ navigation }) => {
 
   const Confirmar = async (e) => {
     e.preventDefault();
-    console.log(curp)
+   
     let conversion= dataURItoBlob(capturaIdentificacion.uri)
     //const form = new FormData(e.target);
     const form = new FormData();
@@ -116,7 +116,7 @@ const HomeScreen = ({ navigation }) => {
     .then(()=>{
        setCargarDocumentos(false)
     })
-    navigation.navigate("confirmarIdentidad");
+    navigation.navigate("ConfirmarIdentidad");
   }
 
   const subirCredito = (event) => {

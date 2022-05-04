@@ -7,17 +7,7 @@ import MediaQuery from 'react-responsive';
 import ContextoUsuario from './componentsInbox/context';
 //registro login
 export default class Registro extends React.Component {
-  config = {
-    initialRouteName: 'Feed',
-    screens: {
-      Registro: {
-        path: '/login/',
-     
-        
-       
-      },
-    },
-  };
+ 
   static contextType = ContextoUsuario;
 
   constructor(){
