@@ -26,7 +26,7 @@ export default class Login extends React.Component {
   static contextType=ContextoUsuario;
   //funcion para poder cambiar el input
   changecurp(curpv) {
-    setCurp(curp);
+   // setCurp(curp);
     //this.setState({ curpv })
   }
 
@@ -87,7 +87,7 @@ export default class Login extends React.Component {
             autoCapitalize='characters'
             password={true}
             onChangeText={(curpv) => {
-              setCurp(curpv)
+              setCurp(curpv.toUpperCase())
             }}//this.changecurp(curpv)}
 
           />
@@ -100,8 +100,7 @@ export default class Login extends React.Component {
             onPress={() => this.validado(curp)}
             >
           <Text style={{color:'white'}}>ENTENDIDO</Text>
-          </TouchableOpacity>
-            
+          </TouchableOpacity>           
           </View>
 
 
@@ -109,7 +108,6 @@ export default class Login extends React.Component {
             transparent={true}
             visible={this.state.show}
           >
-
             <View style={styles.modalcontainer}>
               <View style={styles.modaltextcontainer}>
                 <Text style={styles.modaltext}>CURP Incorrecto.</Text>
@@ -124,18 +122,15 @@ export default class Login extends React.Component {
                   >
                     <Text style={{color:'white'}}>ENTENDIDO</Text>
                   </TouchableOpacity>
-                  </View>
-                
+                 </View>                
               </View>
             </View>
-
           </Modal>
 
           <Modal
             transparent={true}
             visible={this.state.registro}
           >
-
             <View style={styles.modalcontainer}>
               <View style={styles.modaltextcontainer}>
                 <Text style={styles.modaltext}>Introduce tu CURP para el registro.</Text>
@@ -149,7 +144,6 @@ export default class Login extends React.Component {
                   </View>
               </View>
             </View>
-
           </Modal>
 
        
