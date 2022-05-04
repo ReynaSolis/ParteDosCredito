@@ -35,18 +35,18 @@ export default class CrearUpin extends React.Component{
   if(upin.length==6 && this.state.upinew2.length==6 &&
     upin=== this.state.upinew2){
       
-     /* const objM={
+      const objM={
         telefono:this.props.route.params.telefono,
         curp:this.props.route.params.curp
-      };*/
+      };
 
-     /* const objInt= {
+      const objInt= {
         curp: objM.curp,
         telefono: objM.telefono, 
         upin: this.state.upinew1,
         identificadorJourney: "501"
-      };*/
-      const objInt= {
+      };
+      const objInt2= {
         curp: curp,
         telefono: tel, 
         upin: upin,
@@ -55,7 +55,7 @@ export default class CrearUpin extends React.Component{
 
       //console.log(objM);
       //console.log(objInt);
-      const resgistrar=await insertarUser(objInt);
+      const resgistrar=await insertarUser(objInt2);
 
       if(resgistrar.codigo==="000"){
         this.props.navigation.navigate('ContinuarUpin')

@@ -19,7 +19,7 @@ export default class Telefono extends React.Component{
   }
   //cambia input
   changetel(telv){
-  //this.setState({telv})
+  this.setState({telv})
   }
   
   static contextType=ContextoUsuario;

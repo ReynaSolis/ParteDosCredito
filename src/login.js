@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, Linking, TextInput, Modal, TouchableOpac
 import logo from "../assets/img/logo.png";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { validacionCurp } from './api/validacionCurp';
+import { validacionCurpEvaluacion } from './api/datosEvaluacion';
 import Footer from './Footer/Footer';
 import MediaQuery from 'react-responsive';
 //contexto
@@ -27,26 +28,40 @@ export default class Login extends React.Component {
   //funcion para poder cambiar el input
   changecurp(curpv) {
    // setCurp(curp);
-    //this.setState({ curpv })
+    this.setState({ curpv })
   }
 
 
   async validado(curp) {
+    console.log(curp)
     if (curp.length == 18) {
 
-      const obj = { 
-        curp: curp,
-        identificadorJourney: "501"
+      const obj2 = {
+        curpTitular: curp,
       }
 
-      const apiResponseCurp = await validacionCurp(obj);
+      const apiEvaluacion = await validacionCurpEvaluacion (obj2);
+      if(apiEvaluacion.codigo === "000"){
+        const nombre = apiEvaluacion.nombre;
+
+        const obj = { 
+          curp: curp,
+          identificadorJourney: "501"
+        }
+        const apiResponseCurp = await validacionCurp(obj);
       if (apiResponseCurp.codigo === "000") {
         //console.log("registrado")
+
         this.props.navigation.navigate('Upin')
       } else {
         //console.log("No estas registrado")
         this.props.navigation.navigate('Registro')
       }
+      }else {
+        console.log("Necesitas hacer la evaluacion de un credito primero.")
+      }
+
+      
     } else {
       this.setState({ show: true })
     }
