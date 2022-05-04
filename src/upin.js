@@ -4,9 +4,10 @@ import logo from "../assets/img/logo.png";
 import {validacionCuenta } from "./api/auth"
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Footer from './Footer/Footer';
+import ContextoUsuario from './componentsInbox/context';
 //upin
 export default class Upin extends React.Component{
-  
+  static contextType = ContextoUsuario;
   constructor(){
     super()
     this.state={
@@ -25,7 +26,7 @@ export default class Upin extends React.Component{
   if(this.state.upinv.length==6){
  
     const obj= {
-      curp: this.props.route.params.curp,
+      curp: this.context.curp,
       upin:this.state.upinv,
       identificadorJourney: "501"
     }
@@ -35,7 +36,7 @@ export default class Upin extends React.Component{
 
     if(apiResponse.codigo==="000"){
       //inicio sesion corrctamente lo dirige al inbox
-      this.props.navigation.navigate('Menu', {curp: this.props.route.params.curp})
+      this.props.navigation.navigate('Menu',)
       
     }else{
       this.setState({show:true});
@@ -73,7 +74,7 @@ export default class Upin extends React.Component{
          value={this.state.upinv}
          />
 
-        <Text onPress={() => this.props.navigation.navigate('ConsultarUpin', {curp: this.props.route.params.curp})}
+        <Text onPress={() => this.props.navigation.navigate('ConsultarUpin')}
         style={styles.forgetUpin}>¿Olvidaste tu uPIN?</Text>
         
         <View style={styles.btn}>
@@ -156,7 +157,19 @@ const styles = StyleSheet.create({
      marginLeft:20,
      marginRight:20,
      borderWidth: 1,
-     borderColor:'rgba(206, 31, 40, 1)',
+
+     borderColor:'rgba(164, 167, 169, 1)',
+     "borderTopLeftRadius": 5,
+     "borderTopRightRadius": 4,
+     "borderBottomLeftRadius": 4,
+     "borderBottomRightRadius": 4,
+     "shadowColor": "rgb(0,  0,  0)",
+     "shadowOpacity": 0.47058823529411764,
+     "shadowOffset": {
+       "width": 0,
+       "height": 3
+     },
+     "shadowRadius": 6,
      
     },
     forgetUpin: {

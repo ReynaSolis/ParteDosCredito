@@ -5,8 +5,10 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { validaCodigoTelefono } from './api/validaCodigoTelefono';
 import { nuevoUpin } from './api/nuevoUpin';
 import Footer from './Footer/Footer';
+import ContextoUsuario from './componentsInbox/context';
 //nuevo upin
 export default class NuevoUpin extends React.Component{
+  static contextType = ContextoUsuario;
   constructor(props){
     super(props)
     this.state={
@@ -38,7 +40,8 @@ export default class NuevoUpin extends React.Component{
     }
   
   //validacion
-  async validado(){
+  async validado(upin){
+     
       //primero se verifica el codigo temporal
       if(this.state.upinewt.length!==''){
         let num = this.state.upinewt.replace(".", '');
@@ -49,20 +52,21 @@ export default class NuevoUpin extends React.Component{
      }else{
        //es un numero y sigue con los upin y valida el codigo
        const objModel={
-        telefono:this.props.route.params.telefono,
-        curp:this.props.route.params.curp,
-        identificadorJourney:this.props.route.params.identificadorJourney
+        telefono:this.context.tel,
+        curp:this.context.curp,
+        identificadorJourney:this.context.identificadorJourney
       };
+      
       //console.log(objModel);
   
-      const obj={codigo:this.state.upinewt, numero:objModel.telefono,curp:objModel.curp }
+      const obj={codigo:this.state.upinewt, numero:this.context.tel,curp:this.context.curp }
       const valCode= await validaCodigoTelefono(obj);
       //console.log(obj);
       //console.log(valCode);
       if(valCode.respuesta==="000"){
 
         //codigo celular correcto
-      let num1 = this.state.upinew1.replace(".", '');
+      let num1 = upin.replace(".", '');
       let num2 = this.state.upinew2.replace(".", '');
       if(isNaN(num1) && isNaN(num2)){
         //no es un numero los upin
@@ -70,18 +74,18 @@ export default class NuevoUpin extends React.Component{
       }else{
 
           //validacion de upins iguales
-        if(this.state.upinew1.length==6 && this.state.upinew2.length==6 &&
-            this.state.upinew1 === this.state.upinew2){
+        if(upin.length==6 && this.state.upinew2.length==6 &&
+            upin === this.state.upinew2){
 
               const objUpin ={
-                curp: this.props.route.params.curp, 
-                identificadorJourney:this.props.route.params.identificadorJourney,
-                upin: this.state.upinew1
+                curp: this.context.curp, 
+                identificadorJourney:this.context.identificadorJourney,
+                upin: upin
               }
             const renuevaUpin = await nuevoUpin(objUpin);
             if(renuevaUpin.codigo=="001" || renuevaUpin.codigo=="000"){
               //console.log(renuevaUpin.codigo)
-              this.props.navigation.navigate('ContinuarUpin', {curp: this.props.route.params.curp, upin:this.state.upinew1})
+              this.props.navigation.navigate('ContinuarUpin')
             }
             else{
               this.setState({show:true})
@@ -106,6 +110,8 @@ export default class NuevoUpin extends React.Component{
   
 
   render(){
+    const {upin,setUpin,tel,curp} = this.context;
+    
     
   return (
     <KeyboardAwareScrollView>
@@ -132,8 +138,10 @@ export default class NuevoUpin extends React.Component{
          secureTextEntry={true}
          keyboardType="numeric"
          password={true}
-         onChangeText={(upinew1)=>this.changeupinew1(upinew1)}
-         value={this.state.upinew1}
+         onChangeText={(upinew1)=> {
+          setUpin(upinew1)
+         }}
+       
          
          
          />
@@ -154,7 +162,7 @@ export default class NuevoUpin extends React.Component{
 
           <View style={styles.btn}>
           <TouchableOpacity style={styles.btn2}
-            onPress={() => this.validado()}
+            onPress={() => this.validado(upin)}
             >
           <Text style={{color:'white'}}>RESTABLECER UPIN</Text>
           </TouchableOpacity>

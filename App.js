@@ -46,6 +46,8 @@ export default function App() {
   const [telefonoValido,setTelefonoValido]=useState()
   const [upin,setUpin]=useState()
   const [nombre,setNombre]=useState()
+  const [telBase,setTelBase]=useState()
+  const [identificadorJourney,setIdentificadorJourney]=useState();
 
   
  /* const config = {
@@ -97,6 +99,12 @@ export default function App() {
       ConfirmarIdentidad:{
         path: '/inbox/confirmarIdentidad', 
       },
+      Upin:{
+        path: '/inbox/upin', 
+      },
+      ConsultarUpin:{
+        path: '/inbox/consultarUpin', 
+      },
     },
   };
 
@@ -123,7 +131,9 @@ export default function App() {
       tel,setTel,
       telefonoValido,setTelefonoValido,
       upin,setUpin,
-      nombre,setNombre
+      nombre,setNombre,
+      telBase,setTelBase,
+      identificadorJourney,setIdentificadorJourney
                             }}>
                               
     <NavigationContainer linking={linking}>

@@ -5,10 +5,12 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import {validacionCurp} from "./api/validacionCurp";
 import { validacionTelefono } from './api/validacionTelefono';
 import Footer from './Footer/Footer';
+import ContextoUsuario from './componentsInbox/context';
 
 //recuperacion uPIN
 
 export default class ConsultarUpin extends React.Component{
+  static contextType = ContextoUsuario;
 
     constructor(){
         super()
@@ -26,7 +28,7 @@ export default class ConsultarUpin extends React.Component{
           //CONSULTA BASE DE DATOS PARA TELEFONO
           
           const obj= {
-            curp: this.props.route.params.curp,
+            curp: this.context.curp,
             identificadorJourney: "501"
           }
           
@@ -36,7 +38,8 @@ export default class ConsultarUpin extends React.Component{
 
             this.setState({telefono:telefonoBase})
             this.setState({identificadorJourney:"501"})
-
+            this.context.setTel(telefonoBase)
+            this.context.setIdentificadorJourney("501")
             //console.log(telefonoBase);
 
             //manda codigo a celular
@@ -48,8 +51,6 @@ export default class ConsultarUpin extends React.Component{
             }else {
               console.log("Mensaje no enviado.")
             }
-
-
             
           }else {
             console.log("No registrado.")
@@ -62,10 +63,7 @@ export default class ConsultarUpin extends React.Component{
 
           hidden(){
             this.setState({show:false})
-            this.props.navigation.navigate('NuevoUpin', 
-            {curp: this.props.route.params.curp, 
-              telefono: this.state.telefono, 
-              identificadorJourney: this.state.identificadorJourney})
+            this.props.navigation.navigate('NuevoUpin')
           }
 
 
