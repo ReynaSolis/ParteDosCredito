@@ -6,8 +6,12 @@ import { validacionTelefono } from '../../api/validacionTelefono';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Footer from '../../Footer/Footer';
 import MediaQuery from 'react-responsive';
+import ContextoUsuario from '../../componentsInbox/context'
+
 //validacion telefono
 export default class ValidarTelefono extends React.Component{
+  static contextType=ContextoUsuario;
+  
   constructor(){
     super()
     this.state={
@@ -28,34 +32,37 @@ export default class ValidarTelefono extends React.Component{
   this.setState({telva})
   }
   
-  async reenviar(){
-    const obj={numero: this.props.route.params.telefono}
+  async reenviar(tel){
+    const obj={numero: tel}
     const telefono = await validacionTelefono(obj);
     
     //console.log(obj);
-    //console.log(telefono);
+    console.log(tel);
     
     if(telefono.respuesta==="000"){
       this.setState({reenviado:true})
     }
   }
   
-async validado(){
-  if(this.state.telva.length==4){
-    const objModel={telefono:this.props.route.params.telefono,curp:this.props.route.params.curp};
+async validado(telefonoValido,tel,curp){
+ 
+  if(telefonoValido.length==4){
+   // const objModel={telefono:this.props.route.params.telefono,curp:this.props.route.params.curp};
     //console.log(objModel);
-    const obj={codigo:this.state.telva, numero:objModel.telefono,curp:objModel.curp }
+    const obj={codigo:telefonoValido, numero:tel,curp:curp }
     const valCode= await validaCodigoTelefono(obj);
     //console.log(obj);
     //console.log(valCode);
     if(valCode.respuesta==="000"){
-        this.props.navigation.navigate('GeneraUpin',objModel)
+        this.props.navigation.navigate('GeneraUpin')
     }else{this.setState({show:true})}
   }else{
     this.setState({show:true})
   }
   }
   render(){
+    const {  telefonoValido,setTelefonoValido,tel,curp} = this.context;
+
   return (
     <KeyboardAwareScrollView style={{backgroundColor: 'white'}}>
         <View style={{backgroundColor: 'white'}}>
@@ -69,24 +76,27 @@ async validado(){
          placeholder=" codigo 4 digitos"
          maxLength={4}
          keyboardType="numeric"
-         onChangeText={(telva)=>this.changetelva(telva)}
-         value={this.state.telva}
+         onChangeText={(telva)=>{
+          setTelefonoValido(telva)
+         }}
+        //this.changetelva(telva)}
+        // value={this.state.telva}
          
          />
 
       
                   <View style={styles.btn}>
                   <TouchableOpacity style={styles.btn2}
-                  onPress={() => this.validado()}
+                  onPress={() => this.validado(telefonoValido,tel,curp)}
                   >
-                    <Text style={{color:'white'}}>VALIDAR CELULAR</Text>
+                    <Text style={{color:'white'}}>VALIDAR CELULAR </Text>
                   </TouchableOpacity>
                   </View>
 
         <Text style={styles.advertencia}>Tu codigo expira en 60 segundos.</Text>
         <Text style={styles.advertencia}>Este proceso puede durar algunos minutos. Si no lo recibes haz click aqui para reenviar.</Text>
 
-        <Text onPress={() => this.reenviar()}
+        <Text onPress={() => this.reenviar(tel)}
         style={styles.reenviar}>ENVIARMELO DE NUEVO</Text>
 
         <Modal

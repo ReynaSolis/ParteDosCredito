@@ -5,6 +5,7 @@ import { insertarUser } from '../../api/insertUser';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Footer from '../../Footer/Footer';
 import MediaQuery from 'react-responsive';
+import ContextoUsuario from '../../componentsInbox/context'
 //crear upin
 export default class CrearUpin extends React.Component{
   constructor(props){
@@ -27,30 +28,37 @@ export default class CrearUpin extends React.Component{
   this.setState({upinew2})
   }
   
+  static contextType=ContextoUsuario;
   
- async  validado(){
-   
-  if(this.state.upinew1.length==6 && this.state.upinew2.length==6 &&
-    this.state.upinew1 === this.state.upinew2){
+ async  validado(upin,tel,curp){
+  
+  if(upin.length==6 && this.state.upinew2.length==6 &&
+    upin=== this.state.upinew2){
       
-
-      const objM={
+     /* const objM={
         telefono:this.props.route.params.telefono,
         curp:this.props.route.params.curp
-      };
+      };*/
 
-      const objInt= {
+     /* const objInt= {
         curp: objM.curp,
         telefono: objM.telefono, 
         upin: this.state.upinew1,
         identificadorJourney: "501"
+      };*/
+      const objInt= {
+        curp: curp,
+        telefono: tel, 
+        upin: upin,
+        identificadorJourney: "501"
       };
+
       //console.log(objM);
       //console.log(objInt);
       const resgistrar=await insertarUser(objInt);
 
       if(resgistrar.codigo==="000"){
-        this.props.navigation.navigate('ContinuarUpin', objInt)
+        this.props.navigation.navigate('ContinuarUpin')
       }else{
         console.log("Algo falló");
       }
@@ -68,6 +76,8 @@ export default class CrearUpin extends React.Component{
   
 
   render(){
+  const {upin,setUpin,tel,curp} = this.context;
+  
     
   return (
     <KeyboardAwareScrollView style={{backgroundColor: 'white'}}>
@@ -85,10 +95,11 @@ export default class CrearUpin extends React.Component{
          secureTextEntry={true}
          keyboardType="numeric"
          password={true}
-         onChangeText={(upinew1)=>this.changeupinew1(upinew1)}
-         value={this.state.upinew1}
-         
-         
+         onChangeText={(upinew1)=> {
+          setUpin(upinew1)
+         }}
+         //this.changeupinew1(upinew1)}
+         //value={this.state.upinew1}
          />
 
         <Text style={styles.instruccion}>Confirmar uPIN:</Text>
@@ -105,9 +116,9 @@ export default class CrearUpin extends React.Component{
 
         />
 
-<View style={styles.btn}>
+      <View style={styles.btn}>
                   <TouchableOpacity style={styles.btn2}
-                  onPress={() => this.validado()}
+                  onPress={() => this.validado(upin,tel,curp)}
                   >
                     <Text style={{color:'white'}}>ESTABLECER UPIN</Text>
                   </TouchableOpacity>

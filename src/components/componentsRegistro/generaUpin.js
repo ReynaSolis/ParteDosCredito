@@ -8,9 +8,10 @@ export default class GeneraUpin extends React.Component{
 
 
 async  validandoObj(){
-  const ojbM={telefono:this.props.route.params.telefono,curp:this.props.route.params.curp};
+  //const ojbM={telefono:this.props.route.params.telefono,curp:this.props.route.params.curp};
   //console.log(ojbM);
-  this.props.navigation.navigate('CrearUpin',ojbM)
+  //this.props.navigation.navigate('CrearUpin',ojbM)
+  this.props.navigation.navigate('CrearUpin')
 }
 
 render(){

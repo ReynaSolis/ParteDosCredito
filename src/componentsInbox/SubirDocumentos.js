@@ -51,7 +51,7 @@ const HomeScreen = ({ navigation }) => {
     form.append("files", domicilioFile);
     form.append("folder", "SACA951206HDFNRN04");
 
-    await fetch("http://18.237.203.56/folder/upload", {
+    await fetch("https://labsdsmooi.execute-api.us-west-2.amazonaws.com/folder/upload", {
       method: "post",
       body: form,
     });
@@ -59,7 +59,7 @@ const HomeScreen = ({ navigation }) => {
     const data = new FormData();
     data.append("file", capturaIdentificacion.uri);
     data.append("fileName","SACA951206HDFNRN04/solicitud.pdf")
-    await fetch("http://18.237.203.56/file/upload", {
+    await fetch("https://labsdsmooi.execute-api.us-west-2.amazonaws.com/file/upload", {
       method: "post",
       body: data,
     })

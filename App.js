@@ -42,7 +42,8 @@ export default function App() {
   const [capturaIdentidad,setCapturaIdentidad]=useState();
   //datosReyna
   const [curp,setCurp]=useState();
-  const [telefono,setTelefono]=useState();
+  const [tel,setTel]=useState();
+  const [telefonoValido,setTelefonoValido]=useState()
   const [upin,setUpin]=useState()
 
   
@@ -117,7 +118,8 @@ export default function App() {
       capturaDomicilio,setCapturaDomicilio,
       capturaIdentidad,setCapturaIdentidad,
       curp,setCurp,
-      telefono,setTelefono,
+      tel,setTel,
+      telefonoValido,setTelefonoValido,
       upin,setUpin,
                             }}>
                               

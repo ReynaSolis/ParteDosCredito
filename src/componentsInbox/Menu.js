@@ -22,6 +22,7 @@ import {
 
 
   const Menu = ({ navigation }) => {
+    //jalar este dato de la base de datos
      const [nombreUsuario,setNombreUsuario]=useState("Jose Antonio Santos Cruz");
 
      const cargarDocumentos=()=>{

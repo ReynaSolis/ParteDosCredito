@@ -19,20 +19,21 @@ export default class Telefono extends React.Component{
   }
   //cambia input
   changetel(telv){
-  this.setState({telv})
+  //this.setState({telv})
   }
   
-  
-  async validado(){
-  if(this.state.telv.length==10){
-    const obj={numero: this.state.telv}
+  static contextType=ContextoUsuario;
+
+  async validado(tel){
+  if(tel.length==10){
+    const obj={numero: tel}
     const telefono = await validacionTelefono(obj);
-    const objMod={curp: this.props.route.params.curp, telefono: this.state.telv}
+    //const objMod={curp: this.props.route.params.curp, telefono: this.state.telv}
     //console.log(obj);
     //console.log(telefono);
     //console.log(objMod);
     if(telefono.respuesta==="000"){
-        this.props.navigation.navigate('ValidarTelefono',objMod);
+        this.props.navigation.navigate('ValidarTelefono');
     }
   }else{
     this.setState({show:true})
@@ -43,7 +44,7 @@ export default class Telefono extends React.Component{
     this.setState({show:false})
   }
   render(){
-    const { curp, setCurp } = this.context;
+    const { tel, setTel } = this.context;
 
   return (
     <KeyboardAwareScrollView style={{backgroundColor: 'white'}}>
@@ -62,7 +63,7 @@ export default class Telefono extends React.Component{
          maxLength={10}
          keyboardType="numeric"
          onChangeText={(telv)=>{
-           
+           setTel(telv)
          }}//this.changetel(telv)}
         // value={this.state.telv}
          />
@@ -70,7 +71,7 @@ export default class Telefono extends React.Component{
       
         <View style={styles.btn}>
           <TouchableOpacity style={styles.btn2}
-            onPress={() => this.validado()}
+            onPress={() => this.validado(tel)}
             >
           <Text style={{color:'white'}}>OBTENER CODIGO</Text>
           </TouchableOpacity>

@@ -5,6 +5,7 @@ import {validacionCuenta } from "../../api/auth";
 import { CheckBox } from 'react-native-elements';
 import Footer from '../../Footer/Footer';
 import MediaQuery from 'react-responsive';
+import ContextoUsuario from '../../componentsInbox/context'
 
 export default class ContinuarUpin extends React.Component {
   constructor(props) {
@@ -16,14 +17,15 @@ export default class ContinuarUpin extends React.Component {
       avisop: false,
     }
   }
-
+  static contextType=ContextoUsuario;
+  
   async continuar() {
  
     if (this.state.check == false) {
         this.setState( {show:true});
     } else {
-      const obj = { curp: this.props.route.params.curp, upin: this.props.route.params.upin }
-
+      //const obj = { curp: this.props.route.params.curp, upin: this.props.route.params.upin }
+      const obj = { curp: this.context.curp, upin: this.context.upin}
       const apiResponse = await validacionCuenta(obj);
       if (apiResponse.codigo === "000") {
         this.props.navigation.navigate('Menu')
@@ -61,6 +63,7 @@ export default class ContinuarUpin extends React.Component {
 
 
   render() {
+    const { upin } = this.context;
     return (
      <ScrollView style={{backgroundColor: 'white'}}>
          <View style={{height:"100%"}} >
@@ -74,8 +77,9 @@ export default class ContinuarUpin extends React.Component {
           secureTextEntry={true}
           keyboardType="numeric"
           password={true}
-          value={this.props.route.params.upin}
+          value={upin}
         />
+
         <View style={styles.btn}>
           <TouchableOpacity style={styles.btn2}
                   onPress={() => this.continuar()}
@@ -161,6 +165,7 @@ export default class ContinuarUpin extends React.Component {
             </View>
           </View>
         </Modal>
+
         <MediaQuery minDeviceWidth={400} device={{ deviceWidth: 1500 }}>
               <MediaQuery minDeviceWidth={530}>
                   <Footer></Footer>

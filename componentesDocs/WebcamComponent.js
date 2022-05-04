@@ -106,7 +106,7 @@ export default function WebcamComponent({ variableGuardado }) {
       const data = new FormData();
       data.append("file", conversion);
       data.append("fileName","SACA951206HDFNRN04/selfie.png")
-      await fetch("http://18.237.203.56/file/upload", {
+      await fetch("https://labsdsmooi.execute-api.us-west-2.amazonaws.com/file/upload", {
         method: "post",
         body: data,
       })
