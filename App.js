@@ -43,6 +43,7 @@ export default function App() {
   //datosReyna
   const [curp,setCurp]=useState();
   const [telefono,setTelefono]=useState();
+  const [upin,setUpin]=useState()
 
   
  /* const config = {
@@ -115,6 +116,9 @@ export default function App() {
       capturaIdentificacion,setCapturaIdentificacion,
       capturaDomicilio,setCapturaDomicilio,
       capturaIdentidad,setCapturaIdentidad,
+      curp,setCurp,
+      telefono,setTelefono,
+      upin,setUpin,
                             }}>
                               
     <NavigationContainer linking={linking}>

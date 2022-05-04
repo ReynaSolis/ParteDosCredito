@@ -6,6 +6,7 @@ import { validacionTelefono } from '../../api/validacionTelefono';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Footer from '../../Footer/Footer';
 import MediaQuery from 'react-responsive';
+import ContextoUsuario from '../../componentsInbox/context'
 //telefono
 export default class Telefono extends React.Component{
 
@@ -42,6 +43,8 @@ export default class Telefono extends React.Component{
     this.setState({show:false})
   }
   render(){
+    const { curp, setCurp } = this.context;
+
   return (
     <KeyboardAwareScrollView style={{backgroundColor: 'white'}}>
         <View style={{backgroundColor: 'white'}}>
@@ -58,8 +61,10 @@ export default class Telefono extends React.Component{
          placeholder=" 10 digitos"
          maxLength={10}
          keyboardType="numeric"
-         onChangeText={(telv)=>this.changetel(telv)}
-         value={this.state.telv}
+         onChangeText={(telv)=>{
+           
+         }}//this.changetel(telv)}
+        // value={this.state.telv}
          />
         </View>
       

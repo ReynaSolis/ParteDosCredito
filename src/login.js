@@ -5,8 +5,13 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { validacionCurp } from './api/validacionCurp';
 import Footer from './Footer/Footer';
 import MediaQuery from 'react-responsive';
+//contexto
+import ContextoUsuario from './componentsInbox/context';
+
 //curp
 export default class Login extends React.Component {
+  
+
 
   constructor() {
     super()
@@ -17,27 +22,30 @@ export default class Login extends React.Component {
       identificadorJourney: ''
     }
   }
+
+  static contextType=ContextoUsuario;
   //funcion para poder cambiar el input
   changecurp(curpv) {
-    this.setState({ curpv })
+    setCurp(curp);
+    //this.setState({ curpv })
   }
 
 
-  async validado() {
-    if (this.state.curpv.length == 18) {
+  async validado(curp) {
+    if (curp.length == 18) {
 
       const obj = { 
-        curp: this.state.curpv,
+        curp: curp,
         identificadorJourney: "501"
       }
 
       const apiResponseCurp = await validacionCurp(obj);
       if (apiResponseCurp.codigo === "000") {
         //console.log("registrado")
-        this.props.navigation.navigate('Upin', { curp: this.state.curpv })
+        this.props.navigation.navigate('Upin')
       } else {
         //console.log("No estas registrado")
-        this.props.navigation.navigate('Registro', { curp: this.state.curpv })
+        this.props.navigation.navigate('Registro')
       }
     } else {
       this.setState({ show: true })
@@ -54,8 +62,8 @@ export default class Login extends React.Component {
   }
   //una vez ingresado el curp valida que tenga 18 caracteres
   registro() {
-    if (this.state.curpv.length == 18) {
-      this.props.navigation.navigate('Registro', { curp: this.state.curpv })
+    if (curpv.length == 18) {
+      this.props.navigation.navigate('Registro')
     } else {
       this.setState({ registro: true })
     }
@@ -63,7 +71,8 @@ export default class Login extends React.Component {
 
 
   render() {
-
+    const { curp, setCurp } = this.context;
+    
     return (
       <KeyboardAwareScrollView style={{backgroundColor:"white"}}>
 
@@ -77,7 +86,9 @@ export default class Login extends React.Component {
             maxLength={18}
             autoCapitalize='characters'
             password={true}
-            onChangeText={(curpv) => this.changecurp(curpv)}
+            onChangeText={(curpv) => {
+              setCurp(curpv)
+            }}//this.changecurp(curpv)}
 
           />
 
@@ -86,7 +97,7 @@ export default class Login extends React.Component {
 
           <View style={styles.btn}>
           <TouchableOpacity style={styles.btn2}
-            onPress={() => this.validado()}
+            onPress={() => this.validado(curp)}
             >
           <Text style={{color:'white'}}>ENTENDIDO</Text>
           </TouchableOpacity>

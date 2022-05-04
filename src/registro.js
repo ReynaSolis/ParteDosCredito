@@ -4,6 +4,7 @@ import logo from "../assets/img/logo.png";
 import { validacionCurp } from './api/validacionCurp';
 import Footer from './Footer/Footer';
 import MediaQuery from 'react-responsive';
+import ContextoUsuario from './componentsInbox/context';
 //registro login
 export default class Registro extends React.Component {
   config = {
@@ -17,6 +18,7 @@ export default class Registro extends React.Component {
       },
     },
   };
+  static contextType = ContextoUsuario;
 
   constructor(){
     super()
@@ -26,16 +28,19 @@ export default class Registro extends React.Component {
   }
 
   hidden(){
+  
     this.setState({show:false})
   }
 
   async validaCurp(){
-    const curpG= {curp: this.props.route.params.curp.toUpperCase()}
+    //const curpG= {curp: this.props.route.params.curp.toUpperCase()}
+    const curpG={curp: this.context.curp.toUpperCase()}
    const apiResponse=await validacionCurp(curpG);
    //console.log(curpG);
    //console.log(apiResponse);
    if(apiResponse.codigo!="000"){
-    this.props.navigation.navigate('Telefono', {curp: this.props.route.params.curp})
+    //this.props.navigation.navigate('Telefono', {curp: this.props.route.params.curp})
+    this.props.navigation.navigate('Telefono')
    }else{
     this.props.navigation.navigate('Login')
    }
