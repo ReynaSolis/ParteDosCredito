@@ -76,14 +76,14 @@ export default class ConsultarUpin extends React.Component{
         <View style={{backgroundColor: 'white'}}>
             
             <Image style={styles.logo} source={logo}/>
-            <Text style={styles.title}>Recuperacion uPIN</Text>
-            <Text style={styles.email}>Se te enviara un codigo a tu telefono.</Text>
+            <Text style={styles.title}>Recuperación uPIN</Text>
+            <Text style={styles.email}>Se te enviara un código a tu telefono.</Text>
 
             <View style={styles.btn}>
           <TouchableOpacity style={styles.btn2}
             onPress={() => this.validado()}
             >
-          <Text style={{color:'white'}}>ENVIAR CODIGO</Text>
+          <Text style={{color:'white'}}>ENVIAR CÓDIGO</Text>
           </TouchableOpacity>
             
           </View>
@@ -96,7 +96,7 @@ export default class ConsultarUpin extends React.Component{
           
             <View style={styles.modalcontainer}>
             <View style={styles.modaltextcontainer}>
-              <Text style={styles.modaltext}>Codigo Enviado.</Text>
+              <Text style={styles.modaltext}>Código Enviado.</Text>
               <Text style={styles.modaltext2}>Revisa tu bandeja de mensajeria.</Text>
         
               <View style={styles.btn}>
