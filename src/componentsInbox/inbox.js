@@ -27,12 +27,14 @@ const HomeScreen = ({ navigation }) => {
   const { nomina, setNomina } = useContext(ContextoUsuario);
   const { identificacion, setIdentificacion } = useContext(ContextoUsuario);
   const { credito, setCredito } = useContext(ContextoUsuario);
-  const { confirmarDocumentos, setConfirmarDatos } =
-    useContext(ContextoUsuario);
+  const { confirmarDocumentos, setConfirmarDatos } =useContext(ContextoUsuario);
   const { mostrarCamara, setMostarCamara } = useContext(ContextoUsuario);
 
   const { capturaIdentificacion } = useContext(ContextoUsuario);
 
+  const {curp}=useContext(ContextoUsuario)
+  
+  
   const [domicilioFile, setDomicilioFile] = useState();
   const [nominaFile, setNominaFile] = useState();
   const [indentificacionFile, setIdentificacionFile] = useState();
@@ -89,9 +91,9 @@ const HomeScreen = ({ navigation }) => {
     form.append("files", creditoFile);
     form.append("files", nominaFile);
     form.append("files", domicilioFile);
-    form.append("folder", "SACA951206HDFNRN04");
+    form.append("folder", curp);
 
-    await fetch("http://18.237.203.56/folder/upload", {
+    await fetch("https://labsdsmooi.execute-api.us-west-2.amazonaws.com/folder/upload", {
       method: "post",
       body: form,
     });
@@ -99,8 +101,8 @@ const HomeScreen = ({ navigation }) => {
 
     const data = new FormData();
     data.append("file", conversion);
-    data.append("fileName","SACA951206HDFNRN04/identificacion.png")
-    await fetch("http://18.237.203.56/file/upload", {
+    data.append("fileName",curp+ "/identificacion.png")
+    await fetch("https://labsdsmooi.execute-api.us-west-2.amazonaws.com/file/upload", {
       method: "post",
       body: data,
     })

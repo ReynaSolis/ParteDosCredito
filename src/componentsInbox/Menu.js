@@ -28,6 +28,15 @@ import {
      const cargarDocumentos=()=>{
         navigation.navigate("DocumentosRequeridos");
     }
+    
+    const getNombre=async()=>{
+      
+    }
+
+    React.useEffect(()=>{
+        getNombre()
+    },[])
+
 
       return (
           <ScrollView  style={{backgroundColor:"white"}}>

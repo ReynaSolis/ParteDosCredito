@@ -28,7 +28,7 @@ export default function WebcamComponent({ variableGuardado }) {
   const { capturaIdentificacion, setCapturaIdentificacion } = useContext(ContextoUsuario)
   const { capturaDomicilio, setCapturaDomicilio } = useContext(ContextoUsuario)
   const { capturaIdentidad, setCapturaIdentidad } = useContext(ContextoUsuario)
-
+  const {curp}=useContext(ContextoUsuario)
 
   const ref = useRef(null)
 
@@ -105,7 +105,7 @@ export default function WebcamComponent({ variableGuardado }) {
    
       const data = new FormData();
       data.append("file", conversion);
-      data.append("fileName","SACA951206HDFNRN04/selfie.png")
+      data.append("fileName",curp+"/selfie.png")
       await fetch("https://labsdsmooi.execute-api.us-west-2.amazonaws.com/file/upload", {
         method: "post",
         body: data,
