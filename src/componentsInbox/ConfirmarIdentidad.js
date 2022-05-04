@@ -37,7 +37,8 @@ const ConfirmarIdentidad = () => {
      
  
      const [variableGuardado,setVariableGuardado]=useState()
-    
+     const [cargarDocumentos,setCargarDocumentos]=useState(false);
+
      const Datos=()=>{
          alert("Proceso finalizado");
      }
@@ -65,7 +66,9 @@ return (
     
                <View style={{alignSelf:"center",marginTop:"1%"}}>
                  <TouchableOpacity   disabled={identidad} onPress={() => { setMostarCamara(true)
-                                                                      setVariableGuardado("identidad")}}  > 
+                                                                      setVariableGuardado("identidad")
+                                                                      setCargarDocumentos(true)
+                                                                      }}  > 
                        <View style={{  flexDirection: "row"}}>
                          <Image source={drp} style={styles.logoUser_530}></Image>
                        </View>           
@@ -74,6 +77,16 @@ return (
     
                <Text style={styles.text_530}>Para finalizar favor de confirmar su identidad con Face ID presione el ícono de arriba.</Text>
     
+               {cargarDocumentos&&!identidad&&
+                      <>
+                         <View style={{marginTop:40,marginBottom:5}}>
+                         <ActivityIndicator size="large" color="rgba(206, 31, 40, 1)" />
+                         <Text style={styles.textSpinner}>Subiendo archivos</Text>
+                         </View>
+                         
+                      </>                    
+                  }
+               
                <View style={{marginTop:"5%",height:"20%",bottom:"5%"}}>
                   <TouchableOpacity disabled={!identidad} style={{height:"100%", padding:"0%"}}  onPress={Datos}>
                      <View style={styles.vista_530}>
@@ -135,6 +148,17 @@ return (
     
                <Text style={styles.text}>Para finalizar favor de confirmar su identidad con Face ID presione el ícono de arriba.</Text>
     
+               {cargarDocumentos&&
+                      <>
+                         <View style={{marginTop:40,marginBottom:5}}>
+                         <ActivityIndicator size="large" color="rgba(206, 31, 40, 1)" />
+                         <Text style={styles.textSpinner}>Subiendo archivos</Text>
+                         </View>
+                         
+                      </>
+                      
+                  }
+               
                <View style={{marginTop:"55%",height:"20%",bottom:"5%"}}>
                   <TouchableOpacity disabled={!identidad} style={{height:"100%", padding:"0%"}}  onPress={Datos}>
                      <View style={styles.vista}>
@@ -219,6 +243,13 @@ const styles = StyleSheet.create({
         textAlign:"center",
         "fontFamily": "Helvetica Neue LT Std",
       },
+      textSpinner:{
+        fontSize: 15,
+        color: "black",
+        "fontFamily": "Helvetica Neue LT Std",
+        marginTop:5,
+        alignSelf:"center"
+      },
     text:{
         marginTop:"15%",
         fontSize: 15,
@@ -226,6 +257,7 @@ const styles = StyleSheet.create({
         textAlign:"center",
         "fontFamily": "Helvetica Neue LT Std",
     },
+
     text_530:{
       marginTop:"5%",
       fontSize: 18,

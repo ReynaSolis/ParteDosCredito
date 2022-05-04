@@ -19,6 +19,7 @@ import {
   View,
   TouchableOpacity,
   Image,
+  ActivityIndicator
 } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
@@ -41,7 +42,7 @@ const HomeScreen = ({ navigation }) => {
   const [creditoFile, setCreditoFile] = useState();
 
   const [variableGuardado, setVariableGuardado] = useState();
-
+  const [cargarDocumentos,setCargarDocumentos]=useState(false);
   /*const Confirmar = async (e) => {
     e.preventDefault();
 
@@ -85,6 +86,7 @@ const HomeScreen = ({ navigation }) => {
 
   const Confirmar = async (e) => {
     e.preventDefault();
+    console.log(curp)
     let conversion= dataURItoBlob(capturaIdentificacion.uri)
     //const form = new FormData(e.target);
     const form = new FormData();
@@ -92,21 +94,28 @@ const HomeScreen = ({ navigation }) => {
     form.append("files", nominaFile);
     form.append("files", domicilioFile);
     form.append("folder", curp);
-
-    await fetch("https://labsdsmooi.execute-api.us-west-2.amazonaws.com/folder/upload", {
+ 
+   
+    //await fetch("http://18.237.203.56/folder/upload", {
+      await fetch(" https://labsdsmooi.execute-api.us-west-2.amazonaws.com/folder/upload", {
       method: "post",
       body: form,
-    });
+    })
+   
     
 
     const data = new FormData();
     data.append("file", conversion);
-    data.append("fileName",curp+ "/identificacion.png")
+    data.append("fileName",curp+"/identificacion.png")
+    
+    //await fetch("http://18.237.203.56/file/upload", {
     await fetch("https://labsdsmooi.execute-api.us-west-2.amazonaws.com/file/upload", {
       method: "post",
       body: data,
     })
-
+    .then(()=>{
+       setCargarDocumentos(false)
+    })
     navigation.navigate("confirmarIdentidad");
   }
 
@@ -264,6 +273,17 @@ const HomeScreen = ({ navigation }) => {
               </View>
                   </View>
 
+                  {cargarDocumentos&&
+                      <>
+                         <View style={{marginTop:40,marginBottom:5}}>
+                         <ActivityIndicator size="large" color="rgba(206, 31, 40, 1)" />
+                         <Text style={styles.textSpinner}>Subiendo archivos</Text>
+                         </View>
+                         
+                      </>
+                      
+                  }
+
             <View style={{ marginTop: "10%", bottom: "5%",alignItems:"center" }}>
               <button disabled={!confirmarDocumentos}
                 style={{
@@ -284,6 +304,8 @@ const HomeScreen = ({ navigation }) => {
               </View>
 
              )}
+            
+           
 
              <View style={{position:'absolute',top:"100%",width:"100%",marginTop:10}}>
                <Footer></Footer>
@@ -413,6 +435,18 @@ const HomeScreen = ({ navigation }) => {
               </View>
                   </View>
 
+               
+                  {cargarDocumentos&&
+                      <>
+                         <View style={{marginTop:40,marginBottom:5}}>
+                         <ActivityIndicator size="large" color="rgba(206, 31, 40, 1)" />
+                         <Text style={styles.textSpinner}>Subiendo archivos</Text>
+                         </View>
+                         
+                      </>
+                      
+                  }
+
             <View style={{ marginTop: "15%", height: "20%", bottom: "5%" }}>
               <button
                 disabled={!confirmarDocumentos}
@@ -423,6 +457,9 @@ const HomeScreen = ({ navigation }) => {
                   border: "none",
                 }}
                 type="submit"
+                onClick={()=>{
+                  setCargarDocumentos(true)
+                }}
               >
                 <View style={styles.vista}>
                   <Text style={styles.buttonText}>CONFIRMAR DOCUMENTOS</Text>
@@ -432,6 +469,8 @@ const HomeScreen = ({ navigation }) => {
 
                 </form>
               </View>
+              
+            
               <View style={{position:'relative',top:"10%"}}>
               <Footer></Footer>
             </View> 
@@ -461,9 +500,6 @@ const styles = StyleSheet.create({
     paddingLeft: "6%",
     paddingRight: "6%",
     backgroundColor:"white",
-
-
-
   },
   header: {
     fontWeight: "bold",
@@ -494,6 +530,13 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "black",
     "fontFamily": "Helvetica Neue LT Std",
+  },
+  textSpinner:{
+    fontSize: 15,
+    color: "black",
+    "fontFamily": "Helvetica Neue LT Std",
+    marginTop:5,
+    alignSelf:"center"
   },
   text_530: {
     fontSize: 18,
