@@ -20,7 +20,8 @@ export default class Login extends React.Component {
       curpv: '',
       show: false,
       registro: false,
-      identificadorJourney: ''
+      identificadorJourney: '',
+      evaluacion: false
     }
   }
 
@@ -60,7 +61,8 @@ export default class Login extends React.Component {
         this.props.navigation.navigate('Registro')
       }
       }else {
-        console.log("Necesitas hacer la evaluacion de un credito primero.")
+        this.setState({ evaluacion: true })
+        
       }
 
       
@@ -76,6 +78,10 @@ export default class Login extends React.Component {
   //oculta los modales.
   hidden2() {
     this.setState({ registro: false })
+  }
+
+  hidden3() {
+    this.setState({ evaluacion: false })
   }
   //una vez ingresado el curp valida que tenga 18 caracteres
   registro() {
@@ -155,6 +161,25 @@ export default class Login extends React.Component {
                 <View style={styles.btn}>
                   <TouchableOpacity style={styles.btn2}
                   onPress={() => this.hidden2()}
+                  >
+                    <Text style={{color:'white'}}>ENTENDIDO</Text>
+                  </TouchableOpacity>
+                  </View>
+              </View>
+            </View>
+          </Modal>
+
+          <Modal
+            transparent={true}
+            visible={this.state.evaluacion}
+          >
+            <View style={styles.modalcontainer}>
+              <View style={styles.modaltextcontainer}>
+                <Text style={styles.modaltext}>No has realizado la evaluación de tu crédito.</Text>
+
+                <View style={styles.btn}>
+                  <TouchableOpacity style={styles.btn2}
+                  onPress={() => this.hidden3()}
                   >
                     <Text style={{color:'white'}}>ENTENDIDO</Text>
                   </TouchableOpacity>
