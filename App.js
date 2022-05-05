@@ -138,7 +138,7 @@ export default function App() {
                               
     <NavigationContainer linking={linking}>
       <Stack.Navigator screenOptions={{headerShown:false}}
-       initialRouteName="Login" >
+       initialRouteName= "Login" >
         <Stack.Screen name= "Login" component={Login} options={{title:''}} />
         <Stack.Screen name= "Upin" component={Upin} options={{title:''}} />
         <Stack.Screen name= "ConsultarUpin" component={ConsultarUpin} options={{title:''}} />

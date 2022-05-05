@@ -19,7 +19,6 @@ export default class Login extends React.Component {
     this.state = {
       curpv: '',
       show: false,
-      registro: false,
       identificadorJourney: '',
       evaluacion: false
     }
@@ -83,14 +82,6 @@ export default class Login extends React.Component {
   hidden3() {
     this.setState({ evaluacion: false })
   }
-  //una vez ingresado el curp valida que tenga 18 caracteres
-  registro() {
-    if (curpv.length == 18) {
-      this.props.navigation.navigate('Registro')
-    } else {
-      this.setState({ registro: true })
-    }
-  }
 
 
   render() {
@@ -139,7 +130,7 @@ export default class Login extends React.Component {
                 <Text onPress={() => Linking.openURL('https://www.gob.mx/curp/')}
                   style={styles.curpgob}>¿Olvidaste tu CURP?</Text>
 
-                  <View style={styles.btn}>
+                  <View style={styles.btnmodal}>
                   <TouchableOpacity style={styles.btn2}
                   onPress={() => this.hidden()}
                   >
@@ -150,24 +141,6 @@ export default class Login extends React.Component {
             </View>
           </Modal>
 
-          <Modal
-            transparent={true}
-            visible={this.state.registro}
-          >
-            <View style={styles.modalcontainer}>
-              <View style={styles.modaltextcontainer}>
-                <Text style={styles.modaltext}>Introduce tu CURP para el registro.</Text>
-
-                <View style={styles.btn}>
-                  <TouchableOpacity style={styles.btn2}
-                  onPress={() => this.hidden2()}
-                  >
-                    <Text style={{color:'white'}}>ENTENDIDO</Text>
-                  </TouchableOpacity>
-                  </View>
-              </View>
-            </View>
-          </Modal>
 
           <Modal
             transparent={true}
@@ -175,9 +148,9 @@ export default class Login extends React.Component {
           >
             <View style={styles.modalcontainer}>
               <View style={styles.modaltextcontainer}>
-                <Text style={styles.modaltext}>No has realizado la evaluación de tu crédito.</Text>
+                <Text style={styles.modaltext}>Verifica que tu evaluación de credito haya sido realizada y aprobada.</Text>
 
-                <View style={styles.btn}>
+                <View style={styles.btnmodal}>
                   <TouchableOpacity style={styles.btn2}
                   onPress={() => this.hidden3()}
                   >
@@ -336,6 +309,18 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     marginRight: 'auto',
    
+
+  },
+  btnmodal: {
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 20,
+    borderWidth: 1,
+    borderRadius: 20,
+    backgroundColor:'rgba(206, 31, 40, 1)',
+
+    alignItems:'center'
 
   },
 

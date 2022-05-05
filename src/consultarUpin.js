@@ -77,7 +77,7 @@ export default class ConsultarUpin extends React.Component{
             
             <Image style={styles.logo} source={logo}/>
             <Text style={styles.title}>Recuperación uPIN</Text>
-            <Text style={styles.email}>Se te enviara un código a tu telefono.</Text>
+            <Text style={styles.email}>Se te enviará un código a tu teléfono.</Text>
 
             <View style={styles.btn}>
           <TouchableOpacity style={styles.btn2}
@@ -96,10 +96,10 @@ export default class ConsultarUpin extends React.Component{
           
             <View style={styles.modalcontainer}>
             <View style={styles.modaltextcontainer}>
-              <Text style={styles.modaltext}>Código Enviado.</Text>
-              <Text style={styles.modaltext2}>Revisa tu bandeja de mensajeria.</Text>
+              <Text style={styles.modaltext}>Código enviado.</Text>
+              <Text style={styles.modaltext2}>Revisa tu bandeja de mensajería.</Text>
         
-              <View style={styles.btn}>
+              <View style={styles.btnmodal}>
                   <TouchableOpacity style={styles.btn2}
                   onPress={() => this.hidden()}
                   >
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
        btn: {
         marginTop: 50,
         marginLeft: 20,
-        marginBottom: 250,
+        marginBottom: 280,
         marginRight: 20,
         borderWidth: 1,
         borderRadius: 20,
@@ -212,5 +212,15 @@ const styles = StyleSheet.create({
 
     fontSize:20,
     
+  },
+  btnmodal: {
+    marginTop: 20,
+    marginLeft: 20,
+    marginBottom: 20,
+    marginRight: 20,
+    borderWidth: 1,
+    borderRadius: 20,
+    backgroundColor:'rgba(206, 31, 40, 1)',
+    alignItems:'center'
   },
 })

@@ -118,11 +118,11 @@ export default class NuevoUpin extends React.Component{
         <View style={{backgroundColor: 'white'}}>
          
          <Image style={styles.logo} source={logo}/>
-         <Text style={styles.title}>Codigo de verificacion</Text>
-         <Text style={styles.instruccion}>Ingresa el codigo que se te envio:</Text>
+         <Text style={styles.title}>Código de verificación</Text>
+         <Text style={styles.instruccion}>Ingresa el código que se te envió:</Text>
 
          <TextInput style={styles.input} 
-         placeholder="Codigo temporal"
+         placeholder="Código temporal"
          maxLength={4}
          keyboardType="numeric"
          password={true}
@@ -133,7 +133,7 @@ export default class NuevoUpin extends React.Component{
          <Text style={styles.instruccion}>Nuevo uPIN:</Text>
 
          <TextInput style={styles.input} 
-         placeholder="Nuevo uPIN 6 digitos"
+         placeholder="Nuevo uPIN 6 dígitos"
          maxLength={6}
          secureTextEntry={true}
          keyboardType="numeric"
@@ -177,7 +177,7 @@ export default class NuevoUpin extends React.Component{
             <View style={styles.modalcontainer}>
             <View style={styles.modaltextcontainer}>
             <Text style={styles.modaltext}>uPIN incorrecto/No coincide</Text>
-              <Text style={styles.modaltext2}>Recuerda que tu uPIN tiene 6 numeros y debe coincidir en ambos recuadros.</Text>
+              <Text style={styles.modaltext2}>Recuerda que tu uPIN tiene 6 números y debe coincidir en ambos recuadros.</Text>
             
               <View style={styles.btn}>
                   <TouchableOpacity style={styles.btn2}
@@ -199,9 +199,9 @@ export default class NuevoUpin extends React.Component{
           
             <View style={styles.modalcontainer}>
             <View style={styles.modaltextcontainer}>
-            <Text style={styles.modaltext}>Codigo temporal incorrecto/No coincide</Text>
-              <Text style={styles.modaltext2}>Verifica que tu codigo temporal sea el mismo que se mando a tu telefono previamente.</Text>
-              <Text style={styles.modaltext2}>De lo contrario no podras generar uno nuevo.</Text>
+            <Text style={styles.modaltext}>Código temporal incorrecto/No coincide</Text>
+              <Text style={styles.modaltext2}>Verifica que tu código temporal sea el mismo mandamos a tu teléfono previamente.De lo contrario no podras generar uno nuevo.</Text>
+              
               <View style={styles.btn}>
                   <TouchableOpacity style={styles.btn2}
                   onPress={() => this.hidden2()}

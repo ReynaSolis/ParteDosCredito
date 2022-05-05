@@ -19,7 +19,7 @@ render(){
     <ScrollView style={{backgroundColor: 'white'}}>
           <View >
         <Image style={styles.logo} source={logo}/>
-         <Text style={styles.title}>A continuacion genera tu uPIN de 6 números secretos y no lo compartas con nadie.</Text>
+         <Text style={styles.title}>A continuación genera tu uPIN de 6 números secretos y no lo compartas con nadie</Text>
          <Image style={styles.logo2} source={logo}/>
 
         <View style={styles.btn}>
