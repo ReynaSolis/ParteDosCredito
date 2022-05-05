@@ -115,9 +115,9 @@ export default function WebcamComponent({ variableGuardado }) {
   }
 
 
-  if (hasPermission === false) {
+  /*if (hasPermission === false) {
     return <Text>No access to camera</Text>;
-  }
+  }*/
 
   return (
     <View style={styles.container}>

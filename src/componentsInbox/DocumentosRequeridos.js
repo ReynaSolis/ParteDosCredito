@@ -98,7 +98,7 @@ import {
                            <Text style={styles.textSiguientePaso}>El siguiente paso para la Solicitud de tu Crédito
                             Para Ti es enviarnos los siguientes documentos:</Text>
                             <View style={{marginLeft:20,marginTop:20}}>
-                                 <Text style={styles.textDocumento}>{'\u2022'} Comprobante de domicilio no mayo a 2 meses.</Text>
+                                 <Text style={styles.textDocumento}>{'\u2022'} Comprobante de domicilio no mayor a 2 meses.</Text>
                                  <Text style={styles.textDocumento}>{'\u2022'} Recibo de nómina no mayor a 2 meses.</Text>
                                  <Text style={styles.textDocumento}>{'\u2022'} Identificación Oficial</Text>
                                  <Text style={styles.textDocumento}>{'\u2022'} Solicitud de crédito firmada</Text>
