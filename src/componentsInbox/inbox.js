@@ -8,6 +8,7 @@ import MediaQuery from 'react-responsive';
 //aqui
 import ContextoUsuario from './context';
 import Footer from "../Footer/Footer"
+import { NavigationContainer, CommonActions } from '@react-navigation/native';
 
 
 //importar componentes que podriamos usar de react
@@ -116,7 +117,13 @@ const HomeScreen = ({ navigation }) => {
     .then(()=>{
        setCargarDocumentos(false)
     })
-    navigation.navigate("ConfirmarIdentidad");
+
+    navigation.dispatch(
+    CommonActions.navigate({
+        name: 'ConfirmarIdentidad',
+    }))
+
+    //navigation.navigate("ConfirmarIdentidad");
   }
 
   const subirCredito = (event) => {
