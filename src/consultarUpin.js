@@ -99,7 +99,7 @@ export default class ConsultarUpin extends React.Component{
               <Text style={styles.modaltext}>Código enviado.</Text>
               <Text style={styles.modaltext2}>Revisa tu bandeja de mensajería.</Text>
         
-              <View style={styles.btn}>
+              <View style={styles.btnmodal}>
                   <TouchableOpacity style={styles.btn2}
                   onPress={() => this.hidden()}
                   >
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
        btn: {
         marginTop: 50,
         marginLeft: 20,
-        marginBottom: 250,
+        marginBottom: 280,
         marginRight: 20,
         borderWidth: 1,
         borderRadius: 20,
@@ -212,5 +212,15 @@ const styles = StyleSheet.create({
 
     fontSize:20,
     
+  },
+  btnmodal: {
+    marginTop: 20,
+    marginLeft: 20,
+    marginBottom: 20,
+    marginRight: 20,
+    borderWidth: 1,
+    borderRadius: 20,
+    backgroundColor:'rgba(206, 31, 40, 1)',
+    alignItems:'center'
   },
 })

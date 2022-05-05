@@ -130,7 +130,7 @@ export default class Login extends React.Component {
                 <Text onPress={() => Linking.openURL('https://www.gob.mx/curp/')}
                   style={styles.curpgob}>¿Olvidaste tu CURP?</Text>
 
-                  <View style={styles.btn}>
+                  <View style={styles.btnmodal}>
                   <TouchableOpacity style={styles.btn2}
                   onPress={() => this.hidden()}
                   >
@@ -150,7 +150,7 @@ export default class Login extends React.Component {
               <View style={styles.modaltextcontainer}>
                 <Text style={styles.modaltext}>Verifica que tu evaluación de credito haya sido realizada y aprobada.</Text>
 
-                <View style={styles.btn}>
+                <View style={styles.btnmodal}>
                   <TouchableOpacity style={styles.btn2}
                   onPress={() => this.hidden3()}
                   >
@@ -309,6 +309,18 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     marginRight: 'auto',
    
+
+  },
+  btnmodal: {
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 20,
+    borderWidth: 1,
+    borderRadius: 20,
+    backgroundColor:'rgba(206, 31, 40, 1)',
+
+    alignItems:'center'
 
   },
 

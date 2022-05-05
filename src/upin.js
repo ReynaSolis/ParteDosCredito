@@ -101,7 +101,7 @@ export default class Upin extends React.Component{
 
   
 
-                  <View style={styles.btn}>
+                  <View style={styles.btnmodal}>
                   <TouchableOpacity style={styles.btn2}
                   onPress={() => this.hidden()}
                   >
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
    },
    btn: {
     marginTop: 20,
-    marginBottom: 20,
+    marginBottom: 100,
     marginLeft: 20,
     marginRight: 20,
     borderWidth: 1,
@@ -198,6 +198,18 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginTop:10,
     marginBottom:10,
+    backgroundColor:'rgba(206, 31, 40, 1)',
+    
+    alignItems:'center'
+
+  },
+  btnmodal: {
+    marginTop: 20,
+    marginBottom: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    borderWidth: 1,
+    borderRadius: 20,
     backgroundColor:'rgba(206, 31, 40, 1)',
     
     alignItems:'center'
