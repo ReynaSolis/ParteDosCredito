@@ -185,7 +185,7 @@ const HomeScreen = ({ navigation }) => {
                           <input id="domicilio" type="file" style={{ display:"none"}} name="domicilio" onChange={subirDomicilio}/>
                           <View style={{ flexDirection: "row" }}>
                              <Image source={upload} style={styles.logoUpload} />
-                             <Text style={styles.text_subirDocumento}>Subir documento</Text>
+                             <Text style={styles.text_subirDocumento}>Subir documento (recuerda subir un pdf)</Text>
                           </View>
                         </TouchableOpacity>
 
@@ -204,7 +204,7 @@ const HomeScreen = ({ navigation }) => {
                           <input id="nomina" type="file" style={{ display: "none" }} name="nomina" onChange={subirNomina}/>
                           <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
                              <Image source={upload} style={styles.logoUpload} />
-                             <Text style={styles.text_subirDocumento}>Subir documento</Text>
+                             <Text style={styles.text_subirDocumento}>Subir documento (recuerda subir un pdf)</Text>
                           </View>
                        </TouchableOpacity>
 
@@ -223,7 +223,7 @@ const HomeScreen = ({ navigation }) => {
                                                                                                                        setVariableGuardado("identificacion");}}>
                           <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
                              <Image source={upload} style={styles.logoUpload} />
-                             <Text style={styles.text_subirDocumento}>Subir documento</Text>
+                             <Text style={styles.text_subirDocumento}>Subir documento (escanea tu identificación)</Text>
                           </View>
                        </TouchableOpacity>
 
@@ -260,7 +260,7 @@ const HomeScreen = ({ navigation }) => {
                   />
                   <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
                     <Image source={upload} style={styles.logoUpload} />
-                    <Text style={styles.text_subirDocumento}>Subir documento</Text>
+                    <Text style={styles.text_subirDocumento}>Subir documento (recuerda subir un pdf)</Text>
                   </View>
                 </TouchableOpacity>
                 <View style={{ alignSelf: "flex-end" }}>
@@ -347,7 +347,7 @@ const HomeScreen = ({ navigation }) => {
                           <input id="domicilio" type="file" style={{ display:"none"}} name="domicilio" onChange={subirDomicilio}/>
                           <View style={{ flexDirection: "row" }}>
                              <Image source={upload} style={styles.logoUpload} />
-                             <Text style={{ marginTop: 2 }}>Subir documento</Text>
+                             <Text style={{ marginTop: 2 }}>Subir documento (recuerda subir un pdf)</Text>
                           </View>
                         </TouchableOpacity>
 
@@ -366,7 +366,7 @@ const HomeScreen = ({ navigation }) => {
                           <input id="nomina" type="file" style={{ display: "none" }} name="nomina" onChange={subirNomina}/>
                           <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
                              <Image source={upload} style={styles.logoUpload} />
-                             <Text style={{ marginTop: 2 }}>Subir documento</Text>
+                             <Text style={{ marginTop: 2 }}>Subir documento (recuerda subir un pdf)</Text>
                           </View>
                        </TouchableOpacity>
 
@@ -385,7 +385,7 @@ const HomeScreen = ({ navigation }) => {
                                                                                                                        setVariableGuardado("identificacion");}}>
                           <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
                              <Image source={upload} style={styles.logoUpload} />
-                             <Text style={{ marginTop: 2 }}>Subir documento</Text>
+                             <Text style={{ marginTop: 2 }}>Subir documento (escanea tu identificación)</Text>
                           </View>
                        </TouchableOpacity>
 
@@ -422,7 +422,7 @@ const HomeScreen = ({ navigation }) => {
                   />
                   <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
                     <Image source={upload} style={styles.logoUpload} />
-                    <Text style={{ marginTop: 2 }}>Subir documento</Text>
+                    <Text style={{ marginTop: 2 }}>Subir documento (recuerda subir un pdf)</Text>
                   </View>
                 </TouchableOpacity>
                 <View style={{ alignSelf: "flex-end" }}>
