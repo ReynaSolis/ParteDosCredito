@@ -77,7 +77,7 @@ export default class ConsultarUpin extends React.Component{
             
             <Image style={styles.logo} source={logo}/>
             <Text style={styles.title}>Recuperación uPIN</Text>
-            <Text style={styles.email}>Se te enviara un código a tu telefono.</Text>
+            <Text style={styles.email}>Se te enviará un código a tu teléfono.</Text>
 
             <View style={styles.btn}>
           <TouchableOpacity style={styles.btn2}
@@ -96,8 +96,8 @@ export default class ConsultarUpin extends React.Component{
           
             <View style={styles.modalcontainer}>
             <View style={styles.modaltextcontainer}>
-              <Text style={styles.modaltext}>Código Enviado.</Text>
-              <Text style={styles.modaltext2}>Revisa tu bandeja de mensajeria.</Text>
+              <Text style={styles.modaltext}>Código enviado.</Text>
+              <Text style={styles.modaltext2}>Revisa tu bandeja de mensajería.</Text>
         
               <View style={styles.btn}>
                   <TouchableOpacity style={styles.btn2}

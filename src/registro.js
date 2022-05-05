@@ -42,9 +42,9 @@ export default class Registro extends React.Component {
           <View >
      
      <Image style={styles.logo} source={logo}/>
-      <Text style={styles.title}>A continuacion crearas tu cuenta IDe</Text>
+      <Text style={styles.title}>A continuación crearas tu cuenta IDe</Text>
       <Image style={styles.logo2} source={logo}/>
-      <Text style={styles.title}>Tus documentos de identidad Electronica estaran cifrados y seguros.</Text>
+      <Text style={styles.title}>Tus documentos de identidad Electronica estaran cifrados y seguros</Text>
 
       <View style={styles.btn}>
                <TouchableOpacity style={styles.btn2}
@@ -61,8 +61,8 @@ export default class Registro extends React.Component {
        
          <View style={styles.modalcontainer}>
          <View style={styles.modaltextcontainer}>
-           <Text style={styles.modaltext}>Telefono celular propio.</Text>
-           <Text style={styles.modaltext2}>Recuerda que por fines de provacidad es importante que lo realices desde tu telefono celular propio.</Text>
+           <Text style={styles.modaltext}>Teléfono celular propio</Text>
+           <Text style={styles.modaltext2}>Recuerda que por fines de privacidad es importante que lo realices desde tu teléfono celular propio</Text>
 
 
 

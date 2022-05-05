@@ -60,7 +60,7 @@ export default class Upin extends React.Component{
     <View style={{backgroundColor: 'white'}}>
       
         <Image style={styles.logo} source={logo}/>
-         <Text style={styles.title}>Ingresa tu contraseña / uPIN</Text>
+         <Text style={styles.title}>Contraseña / uPIN</Text>
          <Image style={styles.logo2} source={logo}/>
          <Text style={styles.upin}>Ingresa tu contraseña / uPIN:</Text>
 

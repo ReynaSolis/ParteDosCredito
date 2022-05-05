@@ -51,15 +51,15 @@ export default class Telefono extends React.Component{
         <View style={{backgroundColor: 'white'}}>
          
          <Image style={styles.logo} source={logo}/>
-         <Text style={styles.title}>Validar numero telefonico.</Text>
-         <Text style={styles.title}>A continuacion recibiras un SMS con un codigo de validacion.</Text>
-         <Text style={styles.movil}>Numero movil:</Text>
+         <Text style={styles.title}>Validar número telefónico</Text>
+         <Text style={styles.title}>A continuación recibirás un SMS con un código de validación</Text>
+         <Text style={styles.movil}>Número móvil:</Text>
 
         <View style={styles.container}>
         <Image style={styles.bandera} source={mexico}/>
         <Text style={styles.pais}>+52</Text>
          <TextInput style={styles.input} 
-         placeholder=" 10 digitos"
+         placeholder=" 10 dígitos"
          maxLength={10}
          keyboardType="numeric"
          onChangeText={(telv)=>{
@@ -73,7 +73,7 @@ export default class Telefono extends React.Component{
           <TouchableOpacity style={styles.btn2}
             onPress={() => this.validado(tel)}
             >
-          <Text style={{color:'white'}}>OBTENER CODIGO</Text>
+          <Text style={{color:'white'}}>OBTENER CÓDIGO</Text>
           </TouchableOpacity>
             
           </View>
@@ -86,7 +86,7 @@ export default class Telefono extends React.Component{
           
             <View style={styles.modalcontainer}>
             <View style={styles.modaltextcontainer}>
-              <Text style={styles.modaltext2}>Introduce un numero de celular valido.</Text>
+              <Text style={styles.modaltext2}>Introduce un número de celular válido</Text>
             
               <View style={styles.btn}>
                   <TouchableOpacity style={styles.btn2}

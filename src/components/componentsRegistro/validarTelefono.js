@@ -68,12 +68,12 @@ async validado(telefonoValido,tel,curp){
         <View style={{backgroundColor: 'white'}}>
          
          <Image style={styles.logo} source={logo}/>
-         <Text style={styles.title}>Ingresar codigo de validacion.</Text>
-         <Text style={styles.instruccion}>Ingresa el codigo de numeros que enviamos a tu celular via SMS:</Text>
+         <Text style={styles.title}>Ingresar código de validación</Text>
+         <Text style={styles.instruccion}>Ingresa el código de números que enviamos a tu celular vía SMS:</Text>
          
 
          <TextInput style={styles.input} 
-         placeholder=" codigo 4 digitos"
+         placeholder=" codigo 4 dígitos"
          maxLength={4}
          keyboardType="numeric"
          onChangeText={(telva)=>{
@@ -93,8 +93,8 @@ async validado(telefonoValido,tel,curp){
                   </TouchableOpacity>
                   </View>
 
-        <Text style={styles.advertencia}>Tu codigo expira en 60 segundos.</Text>
-        <Text style={styles.advertencia}>Este proceso puede durar algunos minutos. Si no lo recibes haz click aqui para reenviar.</Text>
+        <Text style={styles.advertencia}>Tu código expira en 90 segundos</Text>
+        <Text style={styles.advertencia}>Si no lo recibes haz clic aquí para reenviar.</Text>
 
         <Text onPress={() => this.reenviar(tel)}
         style={styles.reenviar}>ENVIARMELO DE NUEVO</Text>
@@ -106,9 +106,9 @@ async validado(telefonoValido,tel,curp){
           
             <View style={styles.modalcontainer}>
             <View style={styles.modaltextcontainer}>
-              <Text style={styles.modaltext}>Codigo de validacion incorrecto</Text>
-              <Text style={styles.modaltext2}>Revisa tus SMS para ingresar correctamente el codigo. 
-              De no haber recibido el codigo favor de seleccionar "ENVIARMELO DE NUEVO".</Text>
+              <Text style={styles.modaltext}>Código de validación incorrecto</Text>
+              <Text style={styles.modaltext2}>Revisa tus SMS para ingresar correctamente el código. 
+              De no haber recibido el código favor de seleccionar "ENVIÁRMELO DE NUEVO".</Text>
 
               <View style={styles.btn}>
                   <TouchableOpacity style={styles.btn2}
@@ -130,7 +130,7 @@ async validado(telefonoValido,tel,curp){
           
             <View style={styles.modalcontainer}>
             <View style={styles.modaltextcontainer}>
-              <Text style={styles.modaltext}>Codigo de verificacion reenviado.</Text>
+              <Text style={styles.modaltext}>Código de verificación reenviado</Text>
               
 
               <View style={styles.btn}>

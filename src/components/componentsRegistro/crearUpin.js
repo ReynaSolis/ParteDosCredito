@@ -87,13 +87,13 @@ export default class CrearUpin extends React.Component{
         <View >
          
          <Image style={styles.logo} source={logo}/>
-         <Text style={styles.title}>Crear uPIN.</Text>
-         <Text style={styles.instruccion}>Establece tu uPIN de 6 numeros y confirmalo:</Text>
+         <Text style={styles.title}>Crear uPIN</Text>
+         <Text style={styles.instruccion}>Establece tu uPIN de 6 números y confírmalo</Text>
 
          <Text style={styles.instruccion}>uPIN:</Text>
 
          <TextInput style={styles.input} 
-         placeholder=" uPIN 6 digitos"
+         placeholder=" uPIN 6 dígitos"
          maxLength={6}
          secureTextEntry={true}
          keyboardType="numeric"
@@ -135,7 +135,7 @@ export default class CrearUpin extends React.Component{
             <View style={styles.modalcontainer}>
             <View style={styles.modaltextcontainer}>
             <Text style={styles.modaltext}>uPIN incorrecto/No coincide</Text>
-              <Text style={styles.modaltext2}>Recuerda que tu uPIN tiene 6 numeros y debe coincidir en ambos recuadros.</Text>
+              <Text style={styles.modaltext2}>Recuerda que tu uPIN tiene 6 números y debe coincidir en ambos recuadros.</Text>
             
               <View style={styles.btn}>
                   <TouchableOpacity style={styles.btn2}

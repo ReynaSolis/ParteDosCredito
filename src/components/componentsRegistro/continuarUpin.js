@@ -97,7 +97,7 @@ export default class ContinuarUpin extends React.Component {
 
           <View style={styles.modalcontainer}>
             <View style={styles.modaltextcontainer}>
-              <Text style={styles.modaltext}>Acepta la Politica de Privacidad</Text>
+              <Text style={styles.modaltext}>Acepta la Política de Privacidad</Text>
 
               <View style={styles.btn}>
               <TouchableOpacity style={styles.btn2}
@@ -118,7 +118,7 @@ export default class ContinuarUpin extends React.Component {
 
           <View style={styles.modalcontainer}>
             <View style={styles.modaltextcontainer}>
-              <Text style={styles.modaltext}>Tu uPIN se ha registrado con exito.</Text>
+              <Text style={styles.modaltext}>Tu uPIN se ha registrado con éxito</Text>
 
               <View style={styles.btn}>
               <TouchableOpacity style={styles.btn2}
@@ -139,14 +139,14 @@ export default class ContinuarUpin extends React.Component {
 
           <View style={styles.modalcontainer}>
             <View style={styles.modaltextcontainer}>
-              <Text style={styles.modaltext}>Terminos y Condiciones.</Text>
-              <Text style={styles.modaltext2}>El aviso de privacidad y proteccion de los datos de DPR es para proteger los datos personales
-                de sus Clientes y de los interesados receptores de informacion del cliente, por lo que los datos recabados en la plataforma,
-                estaran protegidos conforme a los dispuesto por la Ley General de Proteccion de Datos Personales en Posesion de los Sujetos
+              <Text style={styles.modaltext}>Términos y Condiciones</Text>
+              <Text style={styles.modaltext2}>El aviso de privacidad y protección de los datos de DPR es para proteger los datos personales
+                de sus Clientes y de los interesados receptores de información del cliente, por lo que los datos recabados en la plataforma,
+                estarán protegidos conforme a lo dispuesto por la Ley General de Protección de Datos Personales en Posesión de los Sujetos
                 Obligados.</Text>
               <View>
                 <CheckBox
-                  title="Acepto la Politica de Privacidad"
+                  title="Acepto la Política de Privacidad"
                   checked={this.state.check}
                   onPress={() => this.checked()}
                 />
@@ -161,7 +161,7 @@ export default class ContinuarUpin extends React.Component {
               </View>
 
               <Text onPress={() => Linking.openURL('https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf')}
-                style={styles.ley}>CONSULTAR POLITICA DE PRIVACIDAD</Text>
+                style={styles.ley}>CONSULTAR POLÍTICA DE PRIVACIDAD</Text>
             </View>
           </View>
         </Modal>
