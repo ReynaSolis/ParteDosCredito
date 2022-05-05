@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
     marginTop:30,
     fontSize:20,
-    fontWeight:'bolder',
+    fontWeight:'bold',
   
   },
   logo: {

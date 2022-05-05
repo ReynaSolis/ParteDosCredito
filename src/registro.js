@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     marginRight: 'auto',
     fontSize:20,
-    fontWeight:'bolder',
+    fontWeight:'bold',
 
     },
     logo: {

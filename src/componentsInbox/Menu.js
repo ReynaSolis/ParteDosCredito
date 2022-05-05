@@ -188,7 +188,7 @@ import {
         color: "black",
         fontFamily: "Helvetica Neue LT Std",
         fontSize:12,
-        fontWeight:500,
+        fontWeight:"500",
         alignSelf:"center"
      
       },
@@ -196,7 +196,7 @@ import {
         color: "black",
         fontFamily: "Helvetica Neue LT Std",
         fontSize:18,
-        fontWeight:500,
+        fontWeight:"500",
         alignSelf:"center"
      
       },
@@ -213,7 +213,7 @@ import {
       marginRight:20
    },
     redondo:{
-        borderRadius:"50%",
+        borderRadius:50,
         width:40,
         height:40,
         borderColor: "black",
@@ -221,7 +221,7 @@ import {
         
     },
     redondo_530:{
-      borderRadius:"50%",
+      borderRadius:50,
       width:50,
       height:50,
       borderColor: "black",

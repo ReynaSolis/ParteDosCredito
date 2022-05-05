@@ -154,23 +154,23 @@ const styles = StyleSheet.create({
   },
   textSiguientePaso:{
     color: "black",
-    alignSelf:"",
+   
     fontFamily: "Helvetica Neue LT Std",
     fontSize:17,
-    fontWeight:500,
+    fontWeight:"500",
     marginTop:20,
   },
   textSiguientePaso_530:{
     color: "black",
-    alignSelf:"",
+   
     fontFamily: "Helvetica Neue LT Std",
     fontSize:20,
-    fontWeight:500,
+    fontWeight:"500",
     marginTop:20,
   },
   textDocumento:{
     color: "black",
-    alignSelf:"",
+  
     fontFamily: "Helvetica Neue LT Std",
     fontSize:17,
     
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   },
   textDocumento_530:{
     color: "black",
-    alignSelf:"",
+   
     fontFamily: "Helvetica Neue LT Std",
     fontSize:20,
     
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     alignSelf:"center",
     fontFamily: "Helvetica Neue LT Std",
     fontSize:17,
-    fontWeight:500,
+    fontWeight:"500",
     marginTop:20,
     textDecorationLine: 'underline'
 
@@ -201,21 +201,21 @@ const styles = StyleSheet.create({
     alignSelf:"center",
     fontFamily: "Helvetica Neue LT Std",
     fontSize:20,
-    fontWeight:500,
+    fontWeight:"500",
     marginTop:20,
     textDecorationLine: 'underline'
 
   },
   textEnvianos:{
     color: "black",
-    alignSelf:"",
+ 
     fontFamily: "Helvetica Neue LT Std",
     fontSize:18,
     marginTop:30
   },
   textEnvianos_530:{
     color: "black",
-    alignSelf:"",
+
     fontFamily: "Helvetica Neue LT Std",
     fontSize:21,
     marginTop:30
@@ -240,14 +240,14 @@ const styles = StyleSheet.create({
       color: "black",
       fontFamily: "Helvetica Neue LT Std",
       fontSize:12,
-      fontWeight:500,
+      fontWeight:"500",
       textAlign:"justify"
     },
     textContenido_530: {
       color: "black",
       fontFamily: "Helvetica Neue LT Std",
       fontSize:18,
-      fontWeight:500,
+      fontWeight:"500",
       textAlign:"justify"
     },
   menu:{
@@ -263,7 +263,7 @@ const styles = StyleSheet.create({
     marginRight:5
  },
  redondo:{
-  borderRadius:"50%",
+  borderRadius:50,
   width:40,
   height:40,
   borderColor: "black",
@@ -271,7 +271,7 @@ const styles = StyleSheet.create({
   
 },
   redondo_530:{
-      borderRadius:"50%",
+      borderRadius:50,
       width:40,
       height:40,
       borderColor: "black",

@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
      marginLeft: 'auto',
      marginRight: 'auto',
      marginBottom:20,
-     fontWeight:'bolder',
+     fontWeight:'bold',
   
     fontSize:20
     },

@@ -38,7 +38,7 @@ export default function WebcamComponent({ variableGuardado }) {
       setHasPermission(status === 'granted');
     })();
   }, []);
-
+ 
 
   const capturarFoto = async () => {
     const options = { quality: 1, base64: true, fixOrientation: true, exif: true };
@@ -114,9 +114,6 @@ export default function WebcamComponent({ variableGuardado }) {
     }
   }
 
-  if (hasPermission === null) {
-    return <View />;
-  }
 
   if (hasPermission === false) {
     return <Text>No access to camera</Text>;

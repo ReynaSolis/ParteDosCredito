@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginBottom: 20,
     fontSize:20,
-    fontWeight:'bolder',
+    fontWeight:'bold',
     
    },
    logo: {
